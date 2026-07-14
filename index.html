@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App V1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="confetti-container"></div>
+    <main class="wrapper">
+      <header class="info-bar">
+        <span class="question-index special"
+          ><span class="current-question__index">1</span> /
+          <span class="total-questions">10</span></span
+        >
+        <span class="currency special"
+          >🪙 <span class="currency-amount">0</span></span
+        >
+      </header>
+
+      <div class="container">
+        <div class="question-area">
+          <span class="question-icon">?</span>
+          <div class="question-wrapper">
+            <h1 class="question">Question loading...</h1>
+          </div>
+        </div>
+
+        <div class="options-area">
+          <button type="button" class="options option--0">
+            Flying Squirrel
+          </button>
+          <button type="button" class="options option--1">Lemur</button>
+          <button type="button" class="options option--2">Bat</button>
+          <button type="button" class="options option--3">Sugar Glider</button>
+        </div>
+      </div>
+
+      <div class="quiz-summary__container">
+        <div class="quiz-summary hidden">
+          <h2 class="quiz-summary__label">Congrats!🏆</h2>
+          <span class="quiz-summary__score">You scored 90%</span>
+          <p class="quiz-summary__text">
+            You attempted
+            <span class="total-questions__count">10</span> questions and got
+            <span class="correct-answers">8</span> of them right.
+          </p>
+          <span class="quiz-summary__reward"
+            >You earned 🪙 <span class="total-coins__earned">50</span></span
+          >
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
