@@ -1,0 +1,572 @@
+/* ==================================================
+   ELEMENT STYLES
+   Controls component construction, not theme colors.
+
+   Required HTML:
+   <html
+     data-theme="ocean"
+     data-mode="light"
+     data-style="default"
+   >
+================================================== */
+
+/* ==================================================
+   DEFAULT FALLBACK
+================================================== */
+
+:root {
+  /* Large components: cards, panels, dropdowns */
+  --component-background: var(--surface);
+  --component-border: 1px solid var(--border-color);
+  --component-radius: var(--radius-sm);
+
+  --component-shadow: 0 1px 3px
+    color-mix(in srgb, var(--text-primary) 10%, transparent);
+
+  --component-pressed-shadow: inset 0 1px 2px
+    color-mix(in srgb, var(--text-primary) 12%, transparent);
+
+  --component-backdrop-filter: none;
+
+  /* Smaller controls: buttons, switches, icon controls */
+  --control-background: var(--surface-alt);
+  --control-border: 1px solid var(--border-color);
+  --control-radius: var(--radius-sm);
+
+  --control-shadow: none;
+
+  --control-pressed-shadow: inset 0 1px 2px
+    color-mix(in srgb, var(--text-primary) 14%, transparent);
+
+  --control-backdrop-filter: none;
+
+  /* Interaction */
+  --style-hover-transform: translateY(-1px);
+  --style-active-transform: scale(0.98);
+
+  /* Typography */
+  --style-font-family: inherit;
+  --style-letter-spacing: normal;
+  --style-text-transform: none;
+
+  /* Compatibility aliases */
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* ==================================================
+   1. DEFAULT
+================================================== */
+
+html[data-style="default"] {
+  --component-background: var(--surface);
+  --component-border: 1px solid var(--border-color);
+  --component-radius: var(--radius-sm);
+
+  --component-shadow: 0 1px 3px
+    color-mix(in srgb, var(--text-primary) 10%, transparent);
+
+  --component-pressed-shadow: inset 0 1px 2px
+    color-mix(in srgb, var(--text-primary) 12%, transparent);
+
+  --component-backdrop-filter: none;
+
+  --control-background: var(--surface-alt);
+  --control-border: 1px solid var(--border-color);
+  --control-radius: var(--radius-sm);
+  --control-shadow: none;
+
+  --control-pressed-shadow: inset 0 1px 2px
+    color-mix(in srgb, var(--text-primary) 14%, transparent);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-1px);
+  --style-active-transform: scale(0.98);
+
+  --style-font-family: inherit;
+  --style-letter-spacing: normal;
+  --style-text-transform: none;
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+html[data-style="neumorphism"],
+html[data-style="glass"],
+html[data-style="clay"],
+html[data-style="outlined"] {
+  --style-font-family: inherit;
+  --style-letter-spacing: normal;
+  --style-text-transform: none;
+}
+
+/* ==================================================
+   2. NEUMORPHISM
+================================================== */
+
+/* Light */
+
+html[data-style="neumorphism"][data-mode="light"] {
+  --component-background: var(--surface);
+  --component-border: 2px solid transparent;
+  --component-radius: var(--radius-md);
+
+  --component-shadow:
+    6px 6px 18px var(--shadow-dark), -6px -6px 18px var(--shadow-light);
+
+  --component-pressed-shadow:
+    inset 5px 5px 10px var(--shadow-dark),
+    inset -5px -5px 10px var(--shadow-light);
+
+  --component-backdrop-filter: none;
+
+  --control-background: var(--surface);
+  --control-border: 2px solid transparent;
+  --control-radius: var(--radius-sm);
+
+  --control-shadow:
+    4px 4px 12px var(--shadow-dark), -4px -4px 12px var(--shadow-light);
+
+  --control-pressed-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-2px);
+  --style-active-transform: scale(0.98);
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* Dark */
+
+html[data-style="neumorphism"][data-mode="dark"] {
+  --component-background: var(--surface);
+  --component-border: 2px solid transparent;
+  --component-radius: var(--radius-md);
+
+  --component-shadow:
+    7px 7px 18px var(--shadow-dark), -5px -5px 15px var(--shadow-light);
+
+  --component-pressed-shadow:
+    inset 5px 5px 11px var(--shadow-dark),
+    inset -4px -4px 10px var(--shadow-light);
+
+  --component-backdrop-filter: none;
+
+  --control-background: var(--surface);
+  --control-border: 2px solid transparent;
+  --control-radius: var(--radius-sm);
+
+  --control-shadow:
+    5px 5px 13px var(--shadow-dark), -4px -4px 11px var(--shadow-light);
+
+  --control-pressed-shadow:
+    inset 4px 4px 9px var(--shadow-dark),
+    inset -4px -4px 9px var(--shadow-light);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-2px);
+  --style-active-transform: scale(0.98);
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* ==================================================
+   3. GLASSMORPHISM
+================================================== */
+
+/* Light */
+
+html[data-style="glass"][data-mode="light"] {
+  --component-background: color-mix(in srgb, var(--surface) 26%, transparent);
+
+  --component-border: 1px solid color-mix(in srgb, white 34%, transparent);
+
+  --component-radius: var(--radius-md);
+
+  --component-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.42);
+
+  --component-pressed-shadow: inset 0 3px 9px rgba(15, 23, 42, 0.1);
+
+  --component-backdrop-filter: blur(6px) saturate(112%);
+
+  --control-background: color-mix(in srgb, var(--surface) 20%, transparent);
+
+  --control-border: 1px solid color-mix(in srgb, white 30%, transparent);
+
+  --control-radius: var(--radius-sm);
+
+  --control-shadow:
+    0 5px 14px rgba(15, 23, 42, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.34);
+
+  --control-pressed-shadow: inset 0 3px 8px rgba(15, 23, 42, 0.12);
+
+  --control-backdrop-filter: blur(4px) saturate(108%);
+
+  --style-hover-transform: translateY(-2px);
+  --style-active-transform: scale(0.98);
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* Dark */
+
+html[data-style="glass"][data-mode="dark"] {
+  --component-background: color-mix(in srgb, var(--surface) 22%, transparent);
+
+  --component-border: 1px solid color-mix(in srgb, white 16%, transparent);
+
+  --component-radius: var(--radius-md);
+
+  --component-shadow:
+    0 9px 26px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  --component-pressed-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.26);
+
+  --component-backdrop-filter: blur(6px) saturate(115%);
+
+  --control-background: color-mix(in srgb, var(--surface) 17%, transparent);
+
+  --control-border: 1px solid color-mix(in srgb, white 13%, transparent);
+
+  --control-radius: var(--radius-sm);
+
+  --control-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.21), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  --control-pressed-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.3);
+
+  --control-backdrop-filter: blur(4px) saturate(110%);
+
+  --style-hover-transform: translateY(-2px);
+  --style-active-transform: scale(0.98);
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* ==================================================
+   4. CLAYMORPHISM
+================================================== */
+
+/* Light */
+
+html[data-style="clay"][data-mode="light"] {
+  --component-background: color-mix(
+    in srgb,
+    var(--surface) 78%,
+    var(--accent) 22%
+  );
+
+  --component-border: 1px solid
+    color-mix(in srgb, var(--accent) 24%, transparent);
+
+  --component-radius: var(--radius-lg);
+
+  --component-shadow:
+    0 12px 22px color-mix(in srgb, var(--accent) 22%, transparent),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.42),
+    inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+
+  --component-pressed-shadow:
+    inset 5px 5px 12px rgba(0, 0, 0, 0.16),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.28);
+
+  --component-backdrop-filter: none;
+
+  --control-background: color-mix(
+    in srgb,
+    var(--surface-alt) 70%,
+    var(--accent) 30%
+  );
+
+  --control-border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+
+  --control-radius: var(--radius-md);
+
+  --control-shadow:
+    0 8px 15px color-mix(in srgb, var(--accent) 24%, transparent),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.38),
+    inset -4px -4px 8px rgba(0, 0, 0, 0.1);
+
+  --control-pressed-shadow:
+    inset 4px 4px 9px rgba(0, 0, 0, 0.17),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.24);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-3px) scale(1.01);
+  --style-active-transform: scale(0.97);
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* Dark */
+
+html[data-style="clay"][data-mode="dark"] {
+  --component-background: color-mix(
+    in srgb,
+    var(--surface) 76%,
+    var(--accent) 24%
+  );
+
+  --component-border: 1px solid
+    color-mix(in srgb, var(--accent) 30%, transparent);
+
+  --component-radius: var(--radius-lg);
+
+  --component-shadow:
+    0 13px 24px rgba(0, 0, 0, 0.38),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.08),
+    inset -5px -5px 11px rgba(0, 0, 0, 0.28);
+
+  --component-pressed-shadow:
+    inset 5px 5px 13px rgba(0, 0, 0, 0.44),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.06);
+
+  --component-backdrop-filter: none;
+
+  --control-background: color-mix(
+    in srgb,
+    var(--surface-alt) 70%,
+    var(--accent) 30%
+  );
+
+  --control-border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
+
+  --control-radius: var(--radius-md);
+
+  --control-shadow:
+    0 9px 17px rgba(0, 0, 0, 0.35), inset 4px 4px 8px rgba(255, 255, 255, 0.07),
+    inset -4px -4px 9px rgba(0, 0, 0, 0.26);
+
+  --control-pressed-shadow:
+    inset 4px 4px 10px rgba(0, 0, 0, 0.42),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.05);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-3px) scale(1.01);
+  --style-active-transform: scale(0.97);
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* ==================================================
+   5. OUTLINED
+================================================== */
+
+/* Light */
+
+html[data-style="outlined"][data-mode="light"] {
+  --component-background: transparent;
+
+  --component-border: 2px solid
+    color-mix(in srgb, var(--text-primary) 52%, transparent);
+
+  --component-radius: var(--radius-sm);
+  --component-shadow: none;
+
+  --component-pressed-shadow: inset 0 0 0 2px
+    color-mix(in srgb, var(--accent) 24%, transparent);
+
+  --component-backdrop-filter: none;
+
+  --control-background: transparent;
+
+  --control-border: 2px solid
+    color-mix(in srgb, var(--text-primary) 48%, transparent);
+
+  --control-radius: var(--radius-sm);
+  --control-shadow: none;
+
+  --control-pressed-shadow: inset 0 0 0 2px
+    color-mix(in srgb, var(--accent) 28%, transparent);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-1px);
+  --style-active-transform: scale(0.98);
+
+  --style-raised-shadow: none;
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* Dark */
+
+html[data-style="outlined"][data-mode="dark"] {
+  --component-background: transparent;
+
+  --component-border: 2px solid
+    color-mix(in srgb, var(--text-primary) 48%, transparent);
+
+  --component-radius: var(--radius-sm);
+  --component-shadow: none;
+
+  --component-pressed-shadow: inset 0 0 0 2px
+    color-mix(in srgb, var(--accent) 30%, transparent);
+
+  --component-backdrop-filter: none;
+
+  --control-background: transparent;
+
+  --control-border: 2px solid
+    color-mix(in srgb, var(--text-primary) 44%, transparent);
+
+  --control-radius: var(--radius-sm);
+  --control-shadow: none;
+
+  --control-pressed-shadow: inset 0 0 0 2px
+    color-mix(in srgb, var(--accent) 34%, transparent);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-1px);
+  --style-active-transform: scale(0.98);
+
+  --style-raised-shadow: none;
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* ==================================================
+   6. RETRO
+================================================== */
+
+html[data-style="retro"] {
+  --component-background: var(--surface);
+  --component-border: 3px solid var(--accent);
+  --component-radius: 0;
+
+  --component-shadow: 6px 6px 0
+    color-mix(in srgb, var(--accent-secondary) 75%, transparent);
+
+  --component-pressed-shadow: inset 3px 3px 0
+    color-mix(in srgb, var(--text-primary) 22%, transparent);
+
+  --component-backdrop-filter: none;
+
+  --control-background: var(--surface-alt);
+  --control-border: 3px solid var(--accent);
+  --control-radius: 0;
+
+  --control-shadow: 4px 4px 0
+    color-mix(in srgb, var(--accent-secondary) 75%, transparent);
+
+  --control-pressed-shadow: inset 3px 3px 0
+    color-mix(in srgb, var(--text-primary) 24%, transparent);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translate(-2px, -2px);
+  --style-active-transform: translate(2px, 2px);
+
+  --style-font-family: "Courier New", monospace;
+  --style-letter-spacing: 0.04em;
+  --style-text-transform: uppercase;
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* ==================================================
+   7. TERMINAL
+================================================== */
+
+html[data-style="terminal"] {
+  --component-background: color-mix(in srgb, var(--surface) 88%, transparent);
+
+  --component-border: 1px solid
+    color-mix(in srgb, var(--accent) 72%, transparent);
+
+  --component-radius: 0;
+
+  --component-shadow:
+    0 0 12px color-mix(in srgb, var(--accent) 28%, transparent),
+    inset 0 0 14px color-mix(in srgb, var(--accent) 8%, transparent);
+
+  --component-pressed-shadow: inset 0 0 16px
+    color-mix(in srgb, var(--accent) 20%, transparent);
+
+  --component-backdrop-filter: none;
+
+  --control-background: color-mix(in srgb, var(--surface-alt) 88%, transparent);
+
+  --control-border: 1px solid color-mix(in srgb, var(--accent) 78%, transparent);
+
+  --control-radius: 0;
+
+  --control-shadow: 0 0 8px color-mix(in srgb, var(--accent) 25%, transparent);
+
+  --control-pressed-shadow: inset 0 0 10px
+    color-mix(in srgb, var(--accent) 22%, transparent);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translateY(-1px);
+  --style-active-transform: scale(0.98);
+
+  --style-font-family: "Courier New", monospace;
+  --style-letter-spacing: 0.03em;
+  --style-text-transform: none;
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}
+
+/* ==================================================
+   8. CYBER
+================================================== */
+
+html[data-style="cyber"] {
+  --component-background: color-mix(in srgb, var(--surface) 84%, transparent);
+
+  --component-border: 1px solid
+    color-mix(in srgb, var(--accent) 78%, transparent);
+
+  --component-radius: var(--radius-sm);
+
+  --component-shadow:
+    0 0 12px color-mix(in srgb, var(--accent) 38%, transparent),
+    0 0 24px color-mix(in srgb, var(--accent-secondary) 22%, transparent),
+    inset 0 0 12px color-mix(in srgb, var(--accent) 7%, transparent);
+
+  --component-pressed-shadow: inset 0 0 18px
+    color-mix(in srgb, var(--accent) 24%, transparent);
+
+  --component-backdrop-filter: blur(4px) saturate(115%);
+
+  --control-background: color-mix(in srgb, var(--surface-alt) 78%, transparent);
+
+  --control-border: 1px solid color-mix(in srgb, var(--accent) 82%, transparent);
+
+  --control-radius: var(--radius-sm);
+
+  --control-shadow:
+    0 0 9px color-mix(in srgb, var(--accent) 34%, transparent),
+    0 0 16px color-mix(in srgb, var(--accent-secondary) 18%, transparent);
+
+  --control-pressed-shadow: inset 0 0 12px
+    color-mix(in srgb, var(--accent) 28%, transparent);
+
+  --control-backdrop-filter: blur(3px) saturate(110%);
+
+  --style-hover-transform: translateY(-2px) scale(1.01);
+  --style-active-transform: scale(0.97);
+
+  --style-font-family: inherit;
+  --style-letter-spacing: 0.025em;
+  --style-text-transform: none;
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}

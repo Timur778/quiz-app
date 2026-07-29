@@ -18,8 +18,7 @@
 }
 
 body {
-  background: #f0f0f0 url("background.jpg") no-repeat center center / cover
-    fixed;
+  background: var(--background);
   color: var(--text-primary);
   font-family: var(--font-main);
 }
@@ -29,7 +28,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 38px 56px 0;
+  padding: 18px 56px 0;
 }
 
 .wrapper {
@@ -41,7 +40,7 @@ body {
 
 .special {
   font-size: 2.5rem;
-  color: var(--text-secondary);
+  color: var(--text-primary);
   font-weight: 600;
 }
 
@@ -50,12 +49,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 12px;
   backdrop-filter: blur(6px);
 
-  width: 50vw;
+  width: 60vw;
 }
 
 .question-area {
@@ -67,7 +65,7 @@ body {
 .question-wrapper {
   width: clamp(500px, 50%, 800px);
   height: clamp(200px, 40vh, 600px);
-  border: 5px solid var(--border-color);
+  border: 2px solid var(--border-color);
   border-radius: 10px;
   text-align: center;
 
@@ -81,8 +79,7 @@ body {
   width: 75px;
   font-size: 4rem;
   border-radius: 50%;
-  border: 5px solid var(--border-color);
-  font-weight: 800;
+  border: 2px solid var(--border-color);
 
   display: flex;
   justify-content: center;

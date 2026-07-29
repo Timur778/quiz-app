@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  --default-background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%);
+  --dark-background: linear-gradient(135deg, #262626 0%, #171717 100%);
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --surface: rgba(255, 255, 255, 0.75);
+  --border-color: #111111;
+  --font-main: "Space Grotesk", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--default-background);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+}
+
+.container {
+  min-height: 100svh;
+  position: relative;
+}
+
+.topbar {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+}
+
+.topbar-left {
+  display: flex;
+  gap: 10px;
+
+  position: relative;
+}
+
+.toggle-mode,
+.themes,
+.difficulty {
+  padding: 6px 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.toggle-mode:hover,
+.themes:hover,
+.difficulty:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.topbar-right {
+  font-size: 2rem;
+  color: inherit;
+  font-weight: 500;
+}
+
+.label-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.start-quiz {
+  height: 96px;
+  width: 96px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.app-name {
+  font-size: 3.5rem;
+  text-align: left;
+  color: inherit;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 12px;
+}
+
+.category-container__grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+
+.quiz-category {
+  font-family: inherit;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  height: clamp(100px, 150px, 250px);
+  width: clamp(100px, 200px, 250px);
+  padding: 10px 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+
+  position: relative;
+}
+
+.quiz-category:hover,
+.start-quiz:hover {
+  cursor: pointer;
+  transform: translateY(-5px);
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(228, 231, 235, 0.5) 100%
+  );
+  box-shadow: 0 10px 20px rgba(26, 26, 26, 0.12);
+  border-color: rgba(26, 26, 26, 0.15);
+}
+
+.quiz-category:active,
+.start-quiz:active {
+  transform: translateY(-1px);
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.category {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.night-active {
+  background: var(--dark-background);
+  color: #fff;
+}
+
+.active,
+.active:hover {
+  border: 3px solid rgba(255, 255, 255, 0.85);
+}
+
+.icon-container {
+  height: 32px;
+  width: 32px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: #fff;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.difficulty-container {
+  height: 250px;
+  width: 170px;
+  padding: 6px 8px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  font-size: 1.5rem;
+  padding: 6px 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: left;
+
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(50%, 10%);
+
+  z-index: 2;
+}
+
+.difficulty-level {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.25rem;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.difficulty-level:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.difficulty-level-star {
+  display: block;
+  flex-shrink: 0;
+
+  fill: none;
+  stroke: currentColor;
+
+  transition:
+    fill 0.2s ease,
+    stroke 0.2s ease,
+    transform 0.2s ease;
+}
+
+.difficulty-level[data-difficulty="easy"].active .difficulty-level-star {
+  fill: #22c55e;
+  stroke: #22c55e;
+}
+
+.difficulty-level[data-difficulty="medium"].active .difficulty-level-star {
+  fill: #eab308;
+  stroke: #eab308;
+}
+
+.difficulty-level[data-difficulty="hard"].active .difficulty-level-star {
+  fill: #ef4444;
+  stroke: #ef4444;
+}
+
+.difficulty-level[data-difficulty="random"].active .difficulty-level-star {
+  fill: #a855f7;
+  stroke: #a855f7;
+}
+
+.difficulty-level.active .difficulty-level-star {
+  transform: scale(1.1);
+}
+
+.difficulty-star {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.difficulty-star svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.difficulty-label {
+  font-weight: 600;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
