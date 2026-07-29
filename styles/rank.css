@@ -1,0 +1,76 @@
+.dropdown-top__ranking {
+  --rank-background-start: #c67700;
+  --rank-background-end: #fcff9e;
+
+  --rank-badge-start: #fc466b;
+  --rank-badge-end: #3f5efb;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #ffffff;
+}
+
+.dropdown-top__ranking[data-rank="amateur"] {
+  --rank-background-start: #c67700;
+  --rank-background-end: #fcff9e;
+
+  --rank-badge-start: #fc466b;
+  --rank-badge-end: #3f5efb;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #ffffff;
+}
+
+.dropdown-top__ranking[data-rank="bronze"] {
+  --rank-background-start: #7a3f1f;
+  --rank-background-end: #d7955e;
+
+  --rank-badge-start: #8f4c2b;
+  --rank-badge-end: #c97945;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #ffffff;
+}
+
+.dropdown-top__ranking[data-rank="silver"] {
+  --rank-background-start: #75808b;
+  --rank-background-end: #e2e8ee;
+
+  --rank-badge-start: #69747e;
+  --rank-badge-end: #b9c4ce;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #1f2933;
+}
+
+.dropdown-top__ranking[data-rank="gold"] {
+  --rank-background-start: #b97800;
+  --rank-background-end: #ffe477;
+
+  --rank-badge-start: #d99a00;
+  --rank-badge-end: #ffdb4d;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #503700;
+}
+
+.dropdown-top__ranking[data-rank="platinum"] {
+  --rank-background-start: #3c8186;
+  --rank-background-end: #baf7f5;
+
+  --rank-badge-start: #3fa8ad;
+  --rank-badge-end: #8ee5e2;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #123b3e;
+}
+
+.dropdown-top__ranking[data-rank="diamond"] {
+  --rank-background-start: #2779c7;
+  --rank-background-end: #9ff6ff;
+
+  --rank-badge-start: #496cff;
+  --rank-badge-end: #b05cff;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #ffffff;
+}

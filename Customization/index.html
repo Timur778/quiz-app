@@ -1,0 +1,2080 @@
+<!doctype html>
+<html
+  lang="en"
+  data-theme="default"
+  data-mode="dark"
+  data-style="neumorphism"
+  data-accent="default"
+  data-background="none"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Customization</title>
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/themes.css" />
+    <link rel="stylesheet" href="../styles/element-styles.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="topbar">
+        <div class="topbar-left">
+          <a href="../Main Menu/index-copy.html" class="back-button">
+            <span class="back-button__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+            </span>
+
+            <span class="back-button__label">Back</span>
+          </a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="total-coins">
+            <span class="coin-icon coins" aria-hidden="true">🪙</span>
+            <span class="coin-amount coins" aria-live="polite">100</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-container">
+        <div class="page-heading">
+          <h1 class="page-label">Customization</h1>
+          <p class="page-description">
+            Personalize the visual appearance of QuizSphere.
+          </p>
+        </div>
+
+        <div class="customization-container">
+          <!-- Themes -->
+          <section class="customization-section">
+            <div class="section-heading">
+              <h2 class="section-title">Themes</h2>
+              <p class="section-description">
+                Choose a theme and its light or dark variation.
+              </p>
+            </div>
+
+            <div class="theme-grid">
+              <article
+                class="customization-option theme-option"
+                data-theme-option="default"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--default"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="default"
+                    data-mode-option="dark"
+                    aria-label="Apply Default dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="default"
+                    data-mode-option="light"
+                    aria-label="Apply Default light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Default</h3>
+              </article>
+
+              <!-- Cyber Neon -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="cyber-neon"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--cyber"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="cyber-neon"
+                    data-mode-option="dark"
+                    aria-label="Apply Cyber Neon dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="cyber-neon"
+                    data-mode-option="light"
+                    aria-label="Apply Cyber Neon light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Cyber Neon</h3>
+              </article>
+
+              <!-- Midnight Blue -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="midnight-blue"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--midnight"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="midnight-blue"
+                    data-mode-option="dark"
+                    aria-label="Apply Midnight Blue dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="midnight-blue"
+                    data-mode-option="light"
+                    aria-label="Apply Midnight Blue light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Midnight Blue</h3>
+              </article>
+
+              <!-- Forest -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="forest"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--forest"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="forest"
+                    data-mode-option="dark"
+                    aria-label="Apply Forest dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="forest"
+                    data-mode-option="light"
+                    aria-label="Apply Forest light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Forest</h3>
+              </article>
+
+              <!-- Sunset -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="sunset"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--sunset"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="sunset"
+                    data-mode-option="dark"
+                    aria-label="Apply Sunset dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="sunset"
+                    data-mode-option="light"
+                    aria-label="Apply Sunset light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Sunset</h3>
+              </article>
+
+              <!-- Ocean -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="ocean"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--ocean"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="ocean"
+                    data-mode-option="dark"
+                    aria-label="Apply Ocean dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="ocean"
+                    data-mode-option="light"
+                    aria-label="Apply Ocean light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Ocean</h3>
+              </article>
+
+              <!-- Royal -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="royal"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--royal"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="royal"
+                    data-mode-option="dark"
+                    aria-label="Apply Royal dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="royal"
+                    data-mode-option="light"
+                    aria-label="Apply Royal light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Royal</h3>
+              </article>
+
+              <!-- Aurora -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="aurora"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--aurora"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="aurora"
+                    data-mode-option="dark"
+                    aria-label="Apply Aurora dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="aurora"
+                    data-mode-option="light"
+                    aria-label="Apply Aurora light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Aurora</h3>
+              </article>
+
+              <!-- Lava -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="lava"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--lava"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="lava"
+                    data-mode-option="dark"
+                    aria-label="Apply Lava dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="lava"
+                    data-mode-option="light"
+                    aria-label="Apply Lava light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Lava</h3>
+              </article>
+
+              <!-- Candy -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="candy"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--candy"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="candy"
+                    data-mode-option="dark"
+                    aria-label="Apply Candy dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="candy"
+                    data-mode-option="light"
+                    aria-label="Apply Candy light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Candy</h3>
+              </article>
+
+              <!-- Solar -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="solar"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--solar"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="solar"
+                    data-mode-option="dark"
+                    aria-label="Apply Solar dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="solar"
+                    data-mode-option="light"
+                    aria-label="Apply Solar light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Solar</h3>
+              </article>
+
+              <!-- Retro Arcade -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="retro-arcade"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--retro-arcade"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="retro-arcade"
+                    data-mode-option="dark"
+                    aria-label="Apply Retro Arcade dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="retro-arcade"
+                    data-mode-option="light"
+                    aria-label="Apply Retro Arcade light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Retro Arcade</h3>
+              </article>
+
+              <!-- Pixel Quest -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="pixel-quest"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--pixel-quest"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="pixel-quest"
+                    data-mode-option="dark"
+                    aria-label="Apply Pixel Quest dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="pixel-quest"
+                    data-mode-option="light"
+                    aria-label="Apply Pixel Quest light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Pixel Quest</h3>
+              </article>
+
+              <!-- Comic Pop -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="comic-pop"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--comic-pop"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="comic-pop"
+                    data-mode-option="dark"
+                    aria-label="Apply Comic Pop dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="comic-pop"
+                    data-mode-option="light"
+                    aria-label="Apply Comic Pop light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Comic Pop</h3>
+              </article>
+
+              <!-- Terminal -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="terminal"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--terminal"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="terminal"
+                    data-mode-option="dark"
+                    aria-label="Apply Terminal dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="terminal"
+                    data-mode-option="light"
+                    aria-label="Apply Terminal light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Terminal</h3>
+              </article>
+
+              <!-- Fantasy Scroll -->
+              <article
+                class="customization-option theme-option"
+                data-theme-option="fantasy-scroll"
+              >
+                <div
+                  class="option-preview theme-preview theme-preview--fantasy-scroll"
+                  aria-hidden="true"
+                ></div>
+
+                <div class="theme-mode-controls">
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="fantasy-scroll"
+                    data-mode-option="dark"
+                    aria-label="Apply Fantasy Scroll dark mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                      />
+                    </svg>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="theme-mode-button"
+                    data-theme-option="fantasy-scroll"
+                    data-mode-option="light"
+                    aria-label="Apply Fantasy Scroll light mode"
+                    aria-pressed="false"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="12" r="4" />
+                      <path d="M12 2v2" />
+                      <path d="M12 20v2" />
+                      <path d="m4.93 4.93 1.41 1.41" />
+                      <path d="m17.66 17.66 1.41 1.41" />
+                      <path d="M2 12h2" />
+                      <path d="M20 12h2" />
+                      <path d="m6.34 17.66-1.41 1.41" />
+                      <path d="m19.07 4.93-1.41 1.41" />
+                    </svg>
+                  </button>
+                </div>
+
+                <h3 class="option-label">Fantasy Scroll</h3>
+              </article>
+            </div>
+          </section>
+
+          <!-- Accent -->
+          <section class="customization-section">
+            <div class="section-heading">
+              <h2 class="section-title">Accent Color</h2>
+
+              <p class="section-description">
+                Choose the highlight color used for active controls and
+                important actions.
+              </p>
+            </div>
+
+            <div class="accent-grid">
+              <!-- Default -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="theme-default"
+                aria-label="Use theme default accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch accent-swatch--theme-default"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Default</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="white"
+                aria-label="White accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #ffffff"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">White</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="black"
+                aria-label="Black accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #18181b"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Black</span>
+              </button>
+
+              <!-- Blues -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="sky"
+                aria-label="Sky accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #38bdf8"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Sky</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="azure"
+                aria-label="Azure accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #0ea5e9"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Azure</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="blue"
+                aria-label="Blue accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #3b82f6"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Blue</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="navy"
+                aria-label="Navy accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #1d4ed8"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Navy</span>
+              </button>
+
+              <!-- Purples -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="lilac"
+                aria-label="Lilac accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #c084fc"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Lilac</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="violet"
+                aria-label="Violet accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #8b5cf6"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Violet</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="purple"
+                aria-label="Purple accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #7c3aed"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Purple</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="indigo"
+                aria-label="Indigo accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #4f46e5"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Indigo</span>
+              </button>
+
+              <!-- Cyans -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="ice"
+                aria-label="Ice accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #67e8f9"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Ice</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="cyan"
+                aria-label="Cyan accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #22d3ee"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Cyan</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="aqua"
+                aria-label="Aqua accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #06b6d4"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Aqua</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="teal"
+                aria-label="Teal accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #0d9488"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Teal</span>
+              </button>
+
+              <!-- Greens -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="mint"
+                aria-label="Mint accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #6ee7b7"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Mint</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="emerald"
+                aria-label="Emerald accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #10b981"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Emerald</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="green"
+                aria-label="Green accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #22c55e"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Green</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="lime"
+                aria-label="Lime accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #84cc16"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Lime</span>
+              </button>
+
+              <!-- Yellows -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="lemon"
+                aria-label="Lemon accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #facc15"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Lemon</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="gold"
+                aria-label="Gold accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #eab308"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Gold</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="amber"
+                aria-label="Amber accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #f59e0b"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Amber</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="honey"
+                aria-label="Honey accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #d97706"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Honey</span>
+              </button>
+
+              <!-- Oranges -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="peach"
+                aria-label="Peach accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #fdba74"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Peach</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="orange"
+                aria-label="Orange accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #f97316"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Orange</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="coral"
+                aria-label="Coral accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #fb7185"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Coral</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="rust"
+                aria-label="Rust accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #c2410c"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Rust</span>
+              </button>
+
+              <!-- Reds -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="scarlet"
+                aria-label="Scarlet accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #f43f5e"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Scarlet</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="red"
+                aria-label="Red accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #ef4444"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Red</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="crimson"
+                aria-label="Crimson accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #dc2626"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Crimson</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="maroon"
+                aria-label="Maroon accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #991b1b"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Maroon</span>
+              </button>
+
+              <!-- Pinks -->
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="blush"
+                aria-label="Blush accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #f9a8d4"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Blush</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="pink"
+                aria-label="Pink accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #ec4899"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Pink</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="fuchsia"
+                aria-label="Fuchsia accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #d946ef"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Fuchsia</span>
+              </button>
+
+              <button
+                type="button"
+                class="accent-option"
+                data-accent-option="magenta"
+                aria-label="Magenta accent"
+                aria-pressed="false"
+              >
+                <span
+                  class="accent-swatch"
+                  style="--preview-accent: #c026d3"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Magenta</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Element styles -->
+          <section class="customization-section">
+            <div class="section-heading">
+              <h2 class="section-title">Element Style</h2>
+              <p class="section-description">
+                Choose how cards, buttons, dropdowns, and panels are rendered.
+              </p>
+            </div>
+
+            <div class="style-grid">
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="default"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--default"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Default</span>
+              </button>
+
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="neumorphism"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--neumorphism"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Neumorphism</span>
+              </button>
+
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="glass"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--glass"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Glassmorphism</span>
+              </button>
+
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="clay"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--clay"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Claymorphism</span>
+              </button>
+
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="outlined"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--outlined"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Outlined</span>
+              </button>
+
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="retro"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--retro"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Retro</span>
+              </button>
+
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="terminal"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--terminal"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Terminal</span>
+              </button>
+
+              <button
+                type="button"
+                class="customization-option style-option"
+                data-style-option="cyber"
+                aria-pressed="false"
+              >
+                <span
+                  class="option-preview style-preview style-preview--cyber"
+                  aria-hidden="true"
+                ></span>
+
+                <span class="option-label">Cyber</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- Backgrounds -->
+          <section class="customization-section">
+            <div class="section-heading">
+              <h2 class="section-title">Backgrounds</h2>
+              <p class="section-description">
+                Choose a decorative background for the app.
+              </p>
+            </div>
+
+            <div class="background-grid">
+              <button
+                type="button"
+                class="background-option background-option--none"
+                data-background-option="none"
+                aria-label="Remove background image"
+                aria-pressed="false"
+              >
+                <span class="background-option__none">No background</span>
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background"
+                aria-label="Apply background 1"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-2"
+                aria-label="Apply background 2"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-2.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-3"
+                aria-label="Apply background 3"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-3.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-4"
+                aria-label="Apply background 4"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-4.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-5"
+                aria-label="Apply background 5"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-5.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-6"
+                aria-label="Apply background 6"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-6.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-7"
+                aria-label="Apply background 7"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-7.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-8"
+                aria-label="Apply background 8"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-8.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-9"
+                aria-label="Apply background 9"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-9.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-10"
+                aria-label="Apply background 10"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-10.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-11"
+                aria-label="Apply background 11"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-11.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+
+              <button
+                type="button"
+                class="background-option"
+                data-background-option="background-12"
+                aria-label="Apply background 12"
+                aria-pressed="false"
+              >
+                <img
+                  src="../Images/background-12.png"
+                  alt=""
+                  class="background-option__image"
+                />
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

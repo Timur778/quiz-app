@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="sign-up.css" />
+  </head>
+  <body>
+    <div class="logo">
+      <img src="../Images/brain.svg" class="brain-img" alt="Brain Icon" />
+      <h1 class="app-name">QuizSphere</h1>
+    </div>
+
+    <main class="main-container">
+      <form class="form-container" novalidate>
+        <h1 class="label">Sign Up</h1>
+        <p class="message">Welcome! Please sign up to access main menu.</p>
+
+        <div class="input-fields">
+          <div class="username-field">
+            <input
+              type="text"
+              id="username"
+              class="input-types"
+              name="username"
+              placeholder="username"
+              autocomplete="username"
+              required
+            />
+
+            <i class="username-icon icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-user-round-icon lucide-user-round"
+              >
+                <circle cx="12" cy="8" r="5" />
+                <path d="M20 21a8 8 0 0 0-16 0" /></svg
+            ></i>
+          </div>
+
+          <p id="userNameError" class="error hidden">
+            This username has already been taken.
+          </p>
+
+          <div class="email-field">
+            <input
+              type="email"
+              id="email"
+              class="input-types"
+              name="email"
+              placeholder="example@gmail.com"
+              autocomplete="email"
+              required
+            />
+
+            <i class="email-icon icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-mail-icon lucide-mail"
+              >
+                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                <rect x="2" y="4" width="20" height="16" rx="2" /></svg
+            ></i>
+          </div>
+
+          <p id="invalidEmailError" class="error hidden">
+            Please enter a valid email address.
+          </p>
+
+          <p id="emailExistsError" class="error hidden">
+            This email has been already taken.
+          </p>
+
+          <div class="password-field">
+            <input
+              type="password"
+              id="password"
+              class="input-types"
+              name="password"
+              placeholder="password"
+              autocomplete="new-password"
+              required
+            />
+
+            <button type="button" class="password-icon icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-eye-off-icon lucide-eye-off"
+              >
+                <path
+                  d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"
+                />
+                <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                <path
+                  d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"
+                />
+                <path d="m2 2 20 20" />
+              </svg>
+            </button>
+          </div>
+
+          <p id="passwordLengthError" class="error hidden">
+            Password is too short. It must be at least 8 characters long.
+          </p>
+
+          <div class="confirm-password-field">
+            <input
+              type="password"
+              id="password-confirmation"
+              class="input-types"
+              name="confirm-password"
+              placeholder="Confirm password"
+              autocomplete="new-password"
+              required
+            />
+
+            <button type="button" class="password-icon icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-eye-off-icon lucide-eye-off"
+              >
+                <path
+                  d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"
+                />
+                <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                <path
+                  d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"
+                />
+                <path d="m2 2 20 20" />
+              </svg>
+            </button>
+          </div>
+
+          <p id="missingFieldsError" class="error hidden">
+            Please fill in all required fields to continue.
+          </p>
+
+          <p id="passwordMismatchError" class="error hidden">
+            The passwords you entered do not match. Please try again.
+          </p>
+        </div>
+
+        <button type="submit" class="sign-up-btn">Sign Up</button>
+        <span class="has-account"
+          >Already have an account?
+          <span class="login"
+            ><a href="../Login Page/login.html">Login</a></span
+          ></span
+        >
+      </form>
+    </main>
+    <script type="module" src="sign-up.js" defer></script>
+  </body>
+</html>
