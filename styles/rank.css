@@ -1,76 +1,315 @@
+/* ==================================================
+   SHARED RANK VARIABLES
+================================================== */
+
+.dropdown-top__level,
 .dropdown-top__ranking {
-  --rank-background-start: #c67700;
-  --rank-background-end: #fcff9e;
+  /* Default fallback: Novice */
+  --rank-background-start: #59636e;
+  --rank-background-end: #c8d0d8;
 
-  --rank-badge-start: #fc466b;
-  --rank-badge-end: #3f5efb;
+  --rank-badge-start: #65717d;
+  --rank-badge-end: #aeb8c2;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #182028;
+
+  --rank-progress-track: color-mix(
+    in srgb,
+    var(--surface-alt) 82%,
+    transparent
+  );
+
+  --rank-progress-fill-start: var(--rank-background-start);
+  --rank-progress-fill-end: var(--rank-background-end);
+
+  --rank-level-background: var(--surface);
+  --rank-level-border: var(--rank-background-start);
+  --rank-level-text: var(--text-primary);
+
+  --rank-progress-text: var(--text-primary);
+  --rank-progress-fill-text: #182028;
+
+  --rank-progress-glow: color-mix(
+    in srgb,
+    var(--rank-background-end) 35%,
+    transparent
+  );
+
+  --rank-panel-background: color-mix(
+    in srgb,
+    var(--component-background) 92%,
+    var(--rank-background-start) 8%
+  );
+
+  --rank-panel-text: var(--text-primary);
+  --rank-panel-muted-text: var(--text-secondary);
+
+  --rank-level-circle-background: var(--surface);
+  --rank-level-circle-text: var(--text-primary);
+}
+
+/* ==================================================
+   NOVICE
+================================================== */
+
+.dropdown-top__level[data-rank="novice"],
+.dropdown-top__ranking[data-rank="novice"] {
+  --rank-background-start: #59636e;
+  --rank-background-end: #c8d0d8;
+
+  --rank-badge-start: #65717d;
+  --rank-badge-end: #aeb8c2;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #182028;
+  --rank-progress-fill-text: #182028;
+}
+
+/* ==================================================
+   LEARNER
+================================================== */
+
+.dropdown-top__level[data-rank="learner"],
+.dropdown-top__ranking[data-rank="learner"] {
+  --rank-background-start: #2f7d32;
+  --rank-background-end: #a8e063;
+
+  --rank-badge-start: #388e3c;
+  --rank-badge-end: #8fd14f;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #123814;
+  --rank-progress-fill-text: #123814;
+}
+
+/* ==================================================
+   SCHOLAR
+================================================== */
+
+.dropdown-top__level[data-rank="scholar"],
+.dropdown-top__ranking[data-rank="scholar"] {
+  --rank-background-start: #245ba7;
+  --rank-background-end: #8fc9ff;
+
+  --rank-badge-start: #326fc2;
+  --rank-badge-end: #72b8f5;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #102f59;
+  --rank-progress-fill-text: #102f59;
+}
+
+/* ==================================================
+   THINKER
+================================================== */
+
+.dropdown-top__level[data-rank="thinker"],
+.dropdown-top__ranking[data-rank="thinker"] {
+  --rank-background-start: #087f8c;
+  --rank-background-end: #85f1e9;
+
+  --rank-badge-start: #0c9ca7;
+  --rank-badge-end: #64ddd7;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #083f43;
+  --rank-progress-fill-text: #083f43;
+}
+
+/* ==================================================
+   CHALLENGER
+================================================== */
+
+.dropdown-top__level[data-rank="challenger"],
+.dropdown-top__ranking[data-rank="challenger"] {
+  --rank-background-start: #c65d00;
+  --rank-background-end: #ffc46b;
+
+  --rank-badge-start: #dd7008;
+  --rank-badge-end: #ffa83d;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #512600;
+  --rank-progress-fill-text: #512600;
+}
+
+/* ==================================================
+   STRATEGIST
+================================================== */
+
+.dropdown-top__level[data-rank="strategist"],
+.dropdown-top__ranking[data-rank="strategist"] {
+  --rank-background-start: #176b68;
+  --rank-background-end: #72d6c9;
+
+  --rank-badge-start: #207f79;
+  --rank-badge-end: #55c5b8;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #0d3c39;
+  --rank-progress-fill-text: #0d3c39;
+}
+
+/* ==================================================
+   EXPERT
+================================================== */
+
+.dropdown-top__level[data-rank="expert"],
+.dropdown-top__ranking[data-rank="expert"] {
+  --rank-background-start: #6432a8;
+  --rank-background-end: #c29cff;
+
+  --rank-badge-start: #7745bd;
+  --rank-badge-end: #ae79f1;
 
   --rank-label-text: #ffffff;
   --rank-badge-text: #ffffff;
+  --rank-progress-fill-text: #ffffff;
 }
 
-.dropdown-top__ranking[data-rank="amateur"] {
-  --rank-background-start: #c67700;
-  --rank-background-end: #fcff9e;
+/* ==================================================
+   ELITE
+================================================== */
 
-  --rank-badge-start: #fc466b;
-  --rank-badge-end: #3f5efb;
+.dropdown-top__level[data-rank="elite"],
+.dropdown-top__ranking[data-rank="elite"] {
+  --rank-background-start: #087f5b;
+  --rank-background-end: #75f0bf;
+
+  --rank-badge-start: #0d9b70;
+  --rank-badge-end: #4fd6a2;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #063d2c;
+  --rank-progress-fill-text: #063d2c;
+}
+
+/* ==================================================
+   MASTER
+================================================== */
+
+.dropdown-top__level[data-rank="master"],
+.dropdown-top__ranking[data-rank="master"] {
+  --rank-background-start: #ad7100;
+  --rank-background-end: #ffe581;
+
+  --rank-badge-start: #c88a00;
+  --rank-badge-end: #ffd24d;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #4d3400;
+  --rank-progress-fill-text: #4d3400;
+}
+
+/* ==================================================
+   GRANDMASTER
+================================================== */
+
+.dropdown-top__level[data-rank="grandmaster"],
+.dropdown-top__ranking[data-rank="grandmaster"] {
+  --rank-background-start: #9f1239;
+  --rank-background-end: #ff758f;
+
+  --rank-badge-start: #be123c;
+  --rank-badge-end: #f43f5e;
 
   --rank-label-text: #ffffff;
   --rank-badge-text: #ffffff;
+  --rank-progress-fill-text: #ffffff;
 }
 
-.dropdown-top__ranking[data-rank="bronze"] {
-  --rank-background-start: #7a3f1f;
-  --rank-background-end: #d7955e;
+/* ==================================================
+   LEGEND
+================================================== */
 
-  --rank-badge-start: #8f4c2b;
-  --rank-badge-end: #c97945;
+.dropdown-top__level[data-rank="legend"],
+.dropdown-top__ranking[data-rank="legend"] {
+  --rank-background-start: #d48a00;
+  --rank-background-end: #fff2a6;
+
+  --rank-badge-start: #f0a500;
+  --rank-badge-end: #ffe066;
+
+  --rank-label-text: #ffffff;
+  --rank-badge-text: #513300;
+  --rank-progress-fill-text: #513300;
+}
+
+/* ==================================================
+   MYTHIC
+================================================== */
+
+.dropdown-top__level[data-rank="mythic"],
+.dropdown-top__ranking[data-rank="mythic"] {
+  --rank-background-start: #7c24c7;
+  --rank-background-end: #ee9cff;
+
+  --rank-badge-start: #9333d8;
+  --rank-badge-end: #d36df2;
 
   --rank-label-text: #ffffff;
   --rank-badge-text: #ffffff;
+  --rank-progress-fill-text: #ffffff;
 }
 
-.dropdown-top__ranking[data-rank="silver"] {
-  --rank-background-start: #75808b;
-  --rank-background-end: #e2e8ee;
+/* ==================================================
+   ASCENDANT
+================================================== */
 
-  --rank-badge-start: #69747e;
-  --rank-badge-end: #b9c4ce;
+.dropdown-top__level[data-rank="ascendant"],
+.dropdown-top__ranking[data-rank="ascendant"] {
+  --rank-background-start: #4c6c8c;
+  --rank-background-end: #d5efff;
+
+  --rank-badge-start: #6485a8;
+  --rank-badge-end: #b6dcef;
 
   --rank-label-text: #ffffff;
-  --rank-badge-text: #1f2933;
+  --rank-badge-text: #203548;
+  --rank-progress-fill-text: #203548;
 }
 
-.dropdown-top__ranking[data-rank="gold"] {
-  --rank-background-start: #b97800;
-  --rank-background-end: #ffe477;
+/* ==================================================
+   IMMORTAL
+================================================== */
 
-  --rank-badge-start: #d99a00;
-  --rank-badge-end: #ffdb4d;
+.dropdown-top__level[data-rank="immortal"],
+.dropdown-top__ranking[data-rank="immortal"] {
+  --rank-background-start: #d8e1ea;
+  --rank-background-end: #ffffff;
 
-  --rank-label-text: #ffffff;
-  --rank-badge-text: #503700;
+  --rank-badge-start: #b8c6d4;
+  --rank-badge-end: #f8fbff;
+
+  --rank-label-text: #243242;
+  --rank-badge-text: #1d2935;
+  --rank-progress-fill-text: #1d2935;
+
+  --rank-progress-glow: color-mix(in srgb, #ffffff 65%, transparent);
 }
 
-.dropdown-top__ranking[data-rank="platinum"] {
-  --rank-background-start: #3c8186;
-  --rank-background-end: #baf7f5;
+/* ==================================================
+   QUIZSPHERE CHAMPION
+================================================== */
 
-  --rank-badge-start: #3fa8ad;
-  --rank-badge-end: #8ee5e2;
+.dropdown-top__level[data-rank="champion"],
+.dropdown-top__ranking[data-rank="champion"] {
+  --rank-background-start: #ff3d81;
+  --rank-background-end: #62e7ff;
 
-  --rank-label-text: #ffffff;
-  --rank-badge-text: #123b3e;
-}
-
-.dropdown-top__ranking[data-rank="diamond"] {
-  --rank-background-start: #2779c7;
-  --rank-background-end: #9ff6ff;
-
-  --rank-badge-start: #496cff;
-  --rank-badge-end: #b05cff;
+  --rank-badge-start: #8b5cf6;
+  --rank-badge-end: #ffcc4d;
 
   --rank-label-text: #ffffff;
   --rank-badge-text: #ffffff;
+  --rank-progress-fill-text: #ffffff;
+
+  --rank-progress-glow: color-mix(in srgb, #b06cff 55%, transparent);
+
+  --rank-panel-background: color-mix(
+    in srgb,
+    var(--component-background) 86%,
+    #8b5cf6 14%
+  );
 }

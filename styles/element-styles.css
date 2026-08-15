@@ -570,3 +570,43 @@ html[data-style="cyber"] {
   --style-raised-shadow: var(--component-shadow);
   --style-pressed-shadow: var(--component-pressed-shadow);
 }
+
+/* ==================================================
+   9. BRUTALIST
+================================================== */
+
+html[data-style="brutalist"] {
+  --component-background: var(--surface);
+
+  --component-border: 3px solid var(--text-primary);
+
+  --component-radius: 0;
+
+  --component-shadow: 7px 7px 0 var(--accent);
+
+  --component-pressed-shadow: 2px 2px 0 var(--accent);
+
+  --component-backdrop-filter: none;
+
+  --control-background: var(--accent);
+
+  --control-border: 2px solid var(--text-primary);
+
+  --control-radius: 0;
+
+  --control-shadow: 4px 4px 0 var(--text-primary);
+
+  --control-pressed-shadow: 1px 1px 0 var(--text-primary);
+
+  --control-backdrop-filter: none;
+
+  --style-hover-transform: translate(-2px, -2px);
+  --style-active-transform: translate(2px, 2px);
+
+  --style-font-family: inherit;
+  --style-letter-spacing: 0.04em;
+  --style-text-transform: uppercase;
+
+  --style-raised-shadow: var(--component-shadow);
+  --style-pressed-shadow: var(--component-pressed-shadow);
+}

@@ -1,0 +1,25 @@
+/* ==================================================
+   KNOWLEDGE VALLEY
+================================================== */
+
+.campaign-world-page[data-world="knowledge-valley"] {
+  --world-background: url("../Images/Knowledge Valley.webp");
+
+  --world-primary: #fff8e7;
+  --world-light: #ffffff;
+  --world-dark: #0b4f5c;
+
+  --world-text: #ffffff;
+  --world-muted-text: #e7f7f8;
+  --world-contrast: #083844;
+
+  --world-success: #3dbb79;
+  --world-locked: #7f8f93;
+  --world-star: #ffd166;
+
+  --world-border: color-mix(in srgb, white 55%, transparent);
+
+  --world-shadow: rgba(0, 35, 44, 0.45);
+
+  --world-glow: rgba(255, 255, 255, 0.28);
+}
