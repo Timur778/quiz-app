@@ -1,5 +1,6 @@
 "use strict";
 
+import { achievements } from "../Achievements Page/achievements.js";
 import {
   setUpdatedUserRecord,
   getUserRecord,
@@ -7,6 +8,7 @@ import {
   showError,
   clearAllErrors,
 } from "../reusable.js";
+import { knowledgeValleyLevels } from "../Play Page/Worlds/Knowledge Valley/knowledge-valley-data.js";
 
 const form = document.querySelector(".form-container");
 const username = document.querySelector("#username");
@@ -21,12 +23,75 @@ const missingFieldsError = document.querySelector("#missingFieldsError");
 const passwordLengthError = document.querySelector("#passwordLengthError");
 const errorMessages = document.querySelectorAll(".error");
 
+function createWorldData(worldId, levelsArray, isWorldUnlocked = true) {
+  const levelsObject = levelsArray.reduce((acc, level, index) => {
+    acc[level.id] = {
+      isUnlocked: index === 0 && isWorldUnlocked,
+      stars: 0,
+    };
+
+    return acc;
+  }, {});
+
+  return {
+    worlds: {
+      [worldId]: {
+        isUnlocked: isWorldUnlocked,
+        levels: levelsObject,
+      },
+    },
+  };
+}
+
 function addNewUser(username, email, password) {
   const newUser = {
     username: username,
     email: email,
     password: password,
+    level: 1,
+    xp: 0,
+    coins: 5000,
     userId: generateUniqueId(),
+    sounds: {
+      isSfxEnabled: true,
+      isMusicEnabled: true,
+      sfxVolume: 0.1,
+      musicVolume: 0.25,
+    },
+    customization: {
+      theme: "default",
+      mode: "light",
+      style: "default",
+      accent: "theme-default",
+      background: "none",
+    },
+    achievements: [
+      {
+        achievementId: "first-quiz",
+        current: 0,
+        isUnlocked: false,
+        unlockedAt: null,
+      },
+      {
+        achievementId: "quiz-streak-3",
+        current: 0,
+        isUnlocked: false,
+        unlockedAt: null,
+      },
+    ],
+
+    campaign: createWorldData("knowledge-valley", knowledgeValleyLevels),
+    inventory: {
+      themes: [],
+      styles: [],
+      accents: [],
+      backgrounds: [],
+    },
+
+    boosters: {
+      "double-xp": 0,
+      "coin-rush": 0,
+    },
   };
 
   database[0].users.push(newUser);
@@ -160,7 +225,7 @@ function handleSubmit() {
   );
 
   setUpdatedUserRecord("database", database);
-  window.location.href = "../Main Menu/index-copy.html";
+  window.location.href = "../Main Menu/index.html";
 }
 
 form.addEventListener("submit", (event) => {

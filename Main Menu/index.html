@@ -1,67 +1,791 @@
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  class="preload"
+  data-theme="default"
+  data-mode="light"
+  data-style="default"
+  data-accent="theme-default"
+  data-background="none"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App Main Menu</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f1f5f9;
+      }
+
+      .preload *,
+      .preload *::before,
+      .preload *::after {
+        transition: none !important;
+      }
+    </style>
+
+    <script>
+      try {
+        const storedData = JSON.parse(localStorage.getItem("database"));
+        const database = storedData?.[0];
+
+        const activeUser = database?.users?.find(
+          (user) => user.userId === database?.activeSession?.userId,
+        );
+
+        const customization = activeUser?.customization;
+
+        if (customization) {
+          document.documentElement.dataset.theme =
+            customization.theme ?? "default";
+
+          document.documentElement.dataset.mode = customization.mode ?? "light";
+
+          document.documentElement.dataset.style =
+            customization.style ?? "default";
+
+          document.documentElement.dataset.accent =
+            customization.accent ?? "theme-default";
+
+          document.documentElement.dataset.background =
+            customization.background ?? "none";
+        }
+      } catch (error) {
+        console.error("Could not apply initial customization.", error);
+      }
+    </script>
+
+    <title>Main Menu</title>
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/themes.css" />
+    <link rel="stylesheet" href="../styles/accents.css" />
+    <link rel="stylesheet" href="../styles/element-styles.css" />
+    <link rel="stylesheet" href="../styles/backgrounds.css" />
+    <link rel="stylesheet" href="../styles/rank.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <main class="main">
-      <div class="container">
-        <header class="topbar">
-          <div class="topbar-left">
+    <div class="wrapper">
+      <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-symbol symbol-1"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-question-mark"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"
+            />
+            <path d="M12 19l0 .01" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-star"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"
+            />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-3"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-trophy-icon lucide-trophy"
+          >
+            <path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" />
+            <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" />
+            <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" />
+            <path d="M4 22h16" />
+            <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
+            <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-4"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-bulb"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+            <path
+              d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"
+            />
+            <path d="M9.7 17l4.6 0" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-5"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-bolt"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-6"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-diamond"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" />
+            <path d="M10 12l-2 -2.2l.6 -1" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-7"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-puzzle"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-8"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chess-queen-icon lucide-chess-queen"
+          >
+            <path
+              d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"
+            />
+            <path d="m12.474 5.943 1.567 5.34a1 1 0 0 0 1.75.328l2.616-3.402" />
+            <path d="m20 9-3 9" />
+            <path d="m5.594 8.209 2.615 3.403a1 1 0 0 0 1.75-.329l1.567-5.34" />
+            <path d="M7 18 4 9" />
+            <circle cx="12" cy="4" r="2" />
+            <circle cx="20" cy="7" r="2" />
+            <circle cx="4" cy="7" r="2" />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-9"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-puzzle"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-10"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-math-function"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M3 19a2 2 0 0 0 2 2c2 0 2 -4 3 -9s1 -9 3 -9a2 2 0 0 1 2 2"
+            />
+            <path d="M5 12h6" />
+            <path d="M15 12l6 6" />
+            <path d="M15 18l6 -6" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-11"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-diamond"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" />
+            <path d="M10 12l-2 -2.2l.6 -1" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-12"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-puzzle"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-13"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-atom"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12v.01" />
+            <path
+              d="M19.071 4.929c-1.562 -1.562 -6 .337 -9.9 4.243c-3.905 3.905 -5.804 8.337 -4.242 9.9c1.562 1.561 6 -.338 9.9 -4.244c3.905 -3.905 5.804 -8.337 4.242 -9.9"
+            />
+            <path
+              d="M4.929 4.929c-1.562 1.562 .337 6 4.243 9.9c3.905 3.905 8.337 5.804 9.9 4.242c1.561 -1.562 -.338 -6 -4.244 -9.9c-3.905 -3.905 -8.337 -5.804 -9.9 -4.242"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-14"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-school"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+            <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-15"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chess-king-icon lucide-chess-king"
+          >
+            <path
+              d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"
+            />
+            <path
+              d="m6.7 18-1-1C4.35 15.682 3 14.09 3 12a5 5 0 0 1 4.95-5c1.584 0 2.7.455 4.05 1.818C13.35 7.455 14.466 7 16.05 7A5 5 0 0 1 21 12c0 2.082-1.359 3.673-2.7 5l-1 1"
+            />
+            <path d="M10 4h4" />
+            <path d="M12 2v6.818" />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-16"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-star"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"
+            />
+          </svg>
+        </span>
+      </div>
+      <header class="topbar">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="topbar-left__btn sound-button"
+            data-sound="dropdown"
+            aria-label="Open sounds"
+            aria-expanded="false"
+            aria-controls="sounds-dropdown"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-volume2-icon lucide-volume-2"
+            >
+              <path
+                d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"
+              />
+              <path d="M16 9a5 5 0 0 1 0 6" />
+              <path d="M19.364 18.364a9 9 0 0 0 0-12.728" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="topbar-left__btn settings-button hidden"
+            data-sound="click"
+            aria-label="Open settings"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-settings-icon lucide-settings"
+            >
+              <path
+                d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+              />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+          </button>
+
+          <div id="sounds-dropdown" class="sounds-dropdown hidden">
+            <h3 class="sounds-dropdown__label">Sounds</h3>
+            <div class="sounds-music">
+              <span class="sounds-music__label">Music</span>
+              <button
+                type="button"
+                class="sounds-music__toggle"
+                data-sound="toggle"
+                aria-label="Toggle music"
+                aria-pressed="true"
+              >
+                <span></span>
+              </button>
+            </div>
+
+            <div class="sounds-fx">
+              <span class="sounds-fx__label">SFX</span>
+              <button
+                type="button"
+                class="sounds-fx__toggle"
+                data-sound="toggle"
+                aria-label="Toggle sound effects"
+                aria-pressed="true"
+              >
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="topbar-right__element total-coins">
+            <img src="../Images/coin.svg" class="coin-icon coins" />
+            <span class="coin-amount coins" aria-live="polite"></span>
+          </div>
+
+          <div class="topbar-right__element user-avatar">
             <button
               type="button"
-              class="toggle-mode"
-              aria-label="Toggle dark mode"
+              class="avatar-button"
+              data-sound="dropdown"
+              aria-label="Open profile menu"
+              aria-expanded="false"
+              aria-controls="profile-dropdown"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-moon-icon lucide-moon"
-              >
-                <path
-                  d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
-                />
-              </svg>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="lucide lucide-sun-icon lucide-sun hidden"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2" />
-                <path d="M12 20v2" />
-                <path d="m4.93 4.93 1.41 1.41" />
-                <path d="m17.66 17.66 1.41 1.41" />
-                <path d="M2 12h2" />
-                <path d="M20 12h2" />
-                <path d="m6.34 17.66-1.41 1.41" />
-                <path d="m19.07 4.93-1.41 1.41" />
-              </svg>
+              <img
+                src="../Images/avatar.svg"
+                alt="User avatar image"
+                class="dropdown-top__avatar"
+              />
             </button>
 
-            <button type="button" class="themes" aria-label="Open themes">
-              <svg
+            <div id="profile-dropdown" class="profile-dropdown hidden">
+              <div class="dropdown-top">
+                <img
+                  src="../Images/avatar.svg"
+                  alt="User avatar image"
+                  class="dropdown-top__avatar"
+                />
+
+                <div class="user-info">
+                  <div class="username__ranking">
+                    <span class="dropdown-top__username">Timur Bagirov</span>
+                    <span class="dropdown-top__ranking" data-rank="scholar"
+                      >Novice</span
+                    >
+                  </div>
+                  <span class="dropdown-top__email">example@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="dropdown-top__level" data-rank="scholar">
+                <div class="dropdown-top__level-top">
+                  <div class="user-level__circle">2</div>
+                  <div class="level">
+                    <span>Level <span class="user-level">2</span></span>
+                    <span class="next-level__points"
+                      ><span>200</span> points to the next level</span
+                    >
+                  </div>
+                </div>
+
+                <div class="progress-container">
+                  <div class="progress-bar-wrap">
+                    <div class="progress-track"></div>
+
+                    <span class="current-level">2</span>
+                    <span class="next-level">3</span>
+                  </div>
+
+                  <span class="current-points">200 / 500 XP</span>
+                </div>
+              </div>
+
+              <div class="dropdown-bottom">
+                <button
+                  type="button"
+                  class="dropdown-bottom__section profile"
+                  data-sound="click"
+                  data-navigation="true"
+                  data-url="../MyProfile Page/index.html"
+                >
+                  <span class="dropdown-bottom__icon profile-icon"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-user-round-icon lucide-user-round"
+                    >
+                      <circle cx="12" cy="8" r="5" />
+                      <path d="M20 21a8 8 0 0 0-16 0" />
+                    </svg>
+                  </span>
+
+                  <span class="dropdown-bottom__label profile-label"
+                    >My Profile</span
+                  >
+                </button>
+
+                <button
+                  type="button"
+                  class="dropdown-bottom__section settings"
+                  data-sound="click"
+                  data-navigation="true"
+                  data-url="../Settings Page/index.html"
+                >
+                  <span class="dropdown-bottom__icon settings-icon"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-settings-icon lucide-settings"
+                    >
+                      <path
+                        d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+                      />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </span>
+
+                  <span class="dropdown-bottom__label settings-label"
+                    >Settings</span
+                  >
+                </button>
+
+                <button
+                  type="button"
+                  class="dropdown-bottom__section darkmode"
+                  data-sound="toggle"
+                  aria-label="Switch to dark mode"
+                  aria-pressed="false"
+                >
+                  <div class="switch-left">
+                    <span class="dropdown-bottom__icon darkmode-icon"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-moon-icon lucide-moon"
+                      >
+                        <path
+                          d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                        />
+                      </svg>
+                    </span>
+
+                    <span class="dropdown-bottom__icon lightmode-icon"
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-sun-icon lucide-sun"
+                      >
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2" />
+                        <path d="M12 20v2" />
+                        <path d="m4.93 4.93 1.41 1.41" />
+                        <path d="m17.66 17.66 1.41 1.41" />
+                        <path d="M2 12h2" />
+                        <path d="M20 12h2" />
+                        <path d="m6.34 17.66-1.41 1.41" />
+                        <path d="m19.07 4.93-1.41 1.41" />
+                      </svg>
+                    </span>
+
+                    <span class="dropdown-bottom__label darkmode-label"
+                      >Dark Mode</span
+                    >
+                    <span class="dropdown-bottom__label lightmode-label hidden"
+                      >Light Mode</span
+                    >
+                  </div>
+
+                  <div class="switch-right">
+                    <div
+                      class="dropdown-bottom__element toggle"
+                      aria-hidden="true"
+                    >
+                      <span></span>
+                    </div>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  class="dropdown-bottom__section logout"
+                  data-sound="click"
+                  data-navigation="true"
+                  data-url="../Login Page/login.html"
+                >
+                  <span class="dropdown-bottom__icon logout-icon"
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-log-out-icon lucide-log-out"
+                    >
+                      <path d="m16 17 5-5-5-5" />
+                      <path d="M21 12H9" />
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    </svg>
+                  </span>
+
+                  <span class="dropdown-bottom__label logout-label"
+                    >Logout</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-container">
+        <div class="logo">
+          <span class="logo-img">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-brain-icon lucide-brain"
+            >
+              <path d="M12 18V5" />
+              <path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4" />
+              <path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5" />
+              <path d="M17.997 5.125a4 4 0 0 1 2.526 5.77" />
+              <path d="M18 18a4 4 0 0 0 2-7.464" />
+              <path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517" />
+              <path d="M6 18a4 4 0 0 1-2-7.464" />
+              <path d="M6.003 5.125a4 4 0 0 0-2.526 5.77" />
+            </svg>
+          </span>
+          <h1 class="logo-label">QuizSphere</h1>
+        </div>
+
+        <nav class="main-menu" aria-label="Main menu">
+          <a
+            href="../Play Page/index.html"
+            class="main-menu__special play-section"
+            data-sound="click"
+            data-navigation="true"
+            aria-label="Open play section"
+          >
+            <span class="main-menu__icon play-icon"
+              ><svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
+                width="96"
+                height="96"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-play-icon lucide-play"
+              >
+                <path
+                  d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"
+                />
+              </svg>
+            </span>
+
+            <span class="main-menu__label play-label">PLAY</span>
+          </a>
+
+          <a
+            href="../Statistics Page/index.html"
+            class="main-menu__section statistics-section"
+            data-sound="click"
+            data-navigation="true"
+            aria-label="Open statistics section"
+          >
+            <span class="main-menu__icon statistics-icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-chart-pie-icon lucide-chart-pie"
+              >
+                <path
+                  d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z"
+                />
+                <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+              </svg>
+            </span>
+
+            <span class="main-menu__label statistics-label">Statistics</span>
+          </a>
+
+          <a
+            href="../Customization Page/index.html"
+            class="main-menu__section customization-section"
+            data-sound="click"
+            data-navigation="true"
+            aria-label="Open customization section"
+          >
+            <span class="main-menu__icon customization-icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -78,291 +802,86 @@
                 <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
                 <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
               </svg>
-            </button>
+            </span>
 
-            <button
-              type="button"
-              class="difficulty"
-              aria-label="Choose difficulty"
+            <span class="main-menu__label customization-label"
+              >Customization</span
             >
-              <svg
+          </a>
+
+          <a
+            href="../Achievements Page/index.html"
+            class="main-menu__section achievements-section"
+            data-sound="click"
+            data-navigation="true"
+            aria-label="Open achievements"
+          >
+            <span class="main-menu__icon achievements-icon"
+              ><svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
+                width="36"
+                height="36"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="lucide lucide-star-icon lucide-star"
+                class="lucide lucide-trophy-icon lucide-trophy"
               >
                 <path
-                  d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
+                  d="M10 14.66v1.626a2 2 0 0 1-.976 1.696A5 5 0 0 0 7 21.978"
                 />
+                <path
+                  d="M14 14.66v1.626a2 2 0 0 0 .976 1.696A5 5 0 0 1 17 21.978"
+                />
+                <path d="M18 9h1.5a1 1 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path
+                  d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z"
+                />
+                <path d="M6 9H4.5a1 1 0 0 1 0-5H6" />
               </svg>
-            </button>
+            </span>
 
-            <div class="difficulty-container hidden">
-              <span class="difficulty-label">Difficulty</span>
+            <span class="main-menu__label achievements-label"
+              >Achievements</span
+            >
+          </a>
 
-              <button
-                type="button"
-                class="difficulty-level"
-                data-difficulty="easy"
+          <a
+            href="../Shop Page/index.html"
+            class="main-menu__section shop-section"
+            data-sound="click"
+            data-navigation="true"
+            aria-label="Open Shop"
+          >
+            <span class="main-menu__icon shop-icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-store-icon lucide-store"
               >
-                <span>Easy</span>
+                <path d="M15 21v-5a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v5" />
+                <path
+                  d="M17.774 10.31a1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.451 0 1.12 1.12 0 0 0-1.548 0 2.5 2.5 0 0 1-3.452 0 1.12 1.12 0 0 0-1.549 0 2.5 2.5 0 0 1-3.77-3.248l2.889-4.184A2 2 0 0 1 7 2h10a2 2 0 0 1 1.653.873l2.895 4.192a2.5 2.5 0 0 1-3.774 3.244"
+                />
+                <path d="M4 10.95V19a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8.05" />
+              </svg>
+            </span>
 
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="difficulty-level-star"
-                  aria-hidden="true"
-                >
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02
-        12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                  />
-                </svg>
-              </button>
-
-              <button
-                type="button"
-                class="difficulty-level"
-                data-difficulty="medium"
-              >
-                <span>Medium</span>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="difficulty-level-star"
-                  aria-hidden="true"
-                >
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02
-        12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                  />
-                </svg>
-              </button>
-
-              <button
-                type="button"
-                class="difficulty-level"
-                data-difficulty="hard"
-              >
-                <span>Hard</span>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="difficulty-level-star"
-                  aria-hidden="true"
-                >
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02
-        12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                  />
-                </svg>
-              </button>
-
-              <button
-                type="button"
-                class="difficulty-level"
-                data-difficulty="random"
-              >
-                <span>Random</span>
-
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="difficulty-level-star"
-                  aria-hidden="true"
-                >
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02
-        12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="total-coins topbar-right">
-            <span class="coin-icon" aria-hidden="true">🪙</span>
-            <span class="amount"> 100</span>
-          </div>
-        </header>
-
-        <div class="label-container">
-          <h1 class="app-name">QuizBlitz</h1>
-          <button type="button" class="start-quiz" aria-label="Start quiz">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="64"
-              height="64"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-play-icon lucide-play"
-            >
-              <path
-                d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div class="category-container">
-          <div class="category-container__grid">
-            <button
-              type="button"
-              class="quiz-category"
-              data-category="entertainment"
-            >
-              <span class="icon" aria-hidden="true">🎮</span>
-              <span class="category">Entertainment</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="music">
-              <span class="icon" aria-hidden="true">🎵</span>
-              <span class="category">Music</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="sports">
-              <span class="icon" aria-hidden="true">⚽</span>
-              <span class="category">Sports</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="science">
-              <span class="icon" aria-hidden="true">🧪</span>
-              <span class="category">Science</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="history">
-              <span class="icon" aria-hidden="true">🏛️</span>
-              <span class="category">History</span>
-            </button>
-
-            <button
-              type="button"
-              class="quiz-category"
-              data-category="geography"
-            >
-              <span class="icon" aria-hidden="true">🌍</span>
-              <span class="category">Geography</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="food">
-              <span class="icon" aria-hidden="true">🍉</span>
-              <span class="category">Food</span>
-            </button>
-
-            <button
-              type="button"
-              class="quiz-category"
-              data-category="literature"
-            >
-              <span class="icon" aria-hidden="true">📜</span>
-              <span class="category">Literature</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="cinema">
-              <span class="icon" aria-hidden="true">🍿</span>
-              <span class="category">Cinema</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="art">
-              <span class="icon" aria-hidden="true">🎭</span>
-              <span class="category">Art</span>
-            </button>
-
-            <button
-              type="button"
-              class="quiz-category"
-              data-category="technology"
-            >
-              <span class="icon" aria-hidden="true">🤖</span>
-              <span class="category">Technology</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="nature">
-              <span class="icon" aria-hidden="true">🦁</span>
-              <span class="category">Nature</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="gaming">
-              <span class="icon" aria-hidden="true">🕹️</span>
-              <span class="category">Gaming</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="space">
-              <span class="icon" aria-hidden="true">🚀</span>
-              <span class="category">Space</span>
-            </button>
-
-            <button
-              type="button"
-              class="quiz-category"
-              data-category="mythology"
-            >
-              <span class="icon" aria-hidden="true">🐉</span>
-              <span class="category">Mythology</span>
-            </button>
-
-            <button
-              type="button"
-              class="quiz-category"
-              data-category="pop-culture"
-            >
-              <span class="icon" aria-hidden="true">🕶️</span>
-              <span class="category">Pop Culture</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="fashion">
-              <span class="icon" aria-hidden="true">👠</span>
-              <span class="category">Fashion</span>
-            </button>
-
-            <button type="button" class="quiz-category" data-category="random">
-              <span class="icon" aria-hidden="true">🎲</span>
-              <span class="category">Random</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </main>
-    <script src="script.js" defer></script>
+            <span class="main-menu__label shop-label">Shop</span>
+          </a>
+        </nav>
+      </main>
+    </div>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
