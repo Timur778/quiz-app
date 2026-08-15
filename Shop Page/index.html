@@ -1,0 +1,2241 @@
+<!doctype html>
+<html
+  lang="en"
+  class="preload"
+  data-theme="default"
+  data-mode="light"
+  data-style="default"
+  data-accent="theme-default"
+  data-background="none"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f1f5f9;
+      }
+
+      .preload *,
+      .preload *::before,
+      .preload *::after {
+        transition: none !important;
+      }
+    </style>
+
+    <script>
+      try {
+        const storedData = JSON.parse(localStorage.getItem("database"));
+        const database = storedData?.[0];
+
+        const activeUser = database?.users?.find(
+          (user) => user.userId === database?.activeSession?.userId,
+        );
+
+        const customization = activeUser?.customization;
+
+        if (customization) {
+          document.documentElement.dataset.theme =
+            customization.theme ?? "default";
+
+          document.documentElement.dataset.mode = customization.mode ?? "light";
+
+          document.documentElement.dataset.style =
+            customization.style ?? "default";
+
+          document.documentElement.dataset.accent =
+            customization.accent ?? "theme-default";
+
+          document.documentElement.dataset.background =
+            customization.background ?? "none";
+        }
+      } catch (error) {
+        console.error("Could not apply initial customization.", error);
+      }
+    </script>
+
+    <title>Shop Page</title>
+
+    <link rel="stylesheet" href="../styles/reset.css" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/themes.css" />
+    <link rel="stylesheet" href="../styles/accents.css" />
+    <link rel="stylesheet" href="../styles/element-styles.css" />
+    <link rel="stylesheet" href="../styles/backgrounds.css" />
+    <link rel="stylesheet" href="../styles/rank.css" />
+    <link rel="stylesheet" href="../styles/shared-layout.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <div class="ambient-background" aria-hidden="true">
+        <span class="ambient-symbol symbol-1"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-question-mark"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"
+            />
+            <path d="M12 19l0 .01" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-star"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"
+            />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-3"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-trophy-icon lucide-trophy"
+          >
+            <path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" />
+            <path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" />
+            <path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" />
+            <path d="M4 22h16" />
+            <path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" />
+            <path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-4"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-bulb"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" />
+            <path
+              d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3"
+            />
+            <path d="M9.7 17l4.6 0" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-5"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-bolt"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-6"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-diamond"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" />
+            <path d="M10 12l-2 -2.2l.6 -1" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-7"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-puzzle"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-8"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chess-queen-icon lucide-chess-queen"
+          >
+            <path
+              d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"
+            />
+            <path d="m12.474 5.943 1.567 5.34a1 1 0 0 0 1.75.328l2.616-3.402" />
+            <path d="m20 9-3 9" />
+            <path d="m5.594 8.209 2.615 3.403a1 1 0 0 0 1.75-.329l1.567-5.34" />
+            <path d="M7 18 4 9" />
+            <circle cx="12" cy="4" r="2" />
+            <circle cx="20" cy="7" r="2" />
+            <circle cx="4" cy="7" r="2" />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-9"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-puzzle"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-10"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-math-function"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M3 19a2 2 0 0 0 2 2c2 0 2 -4 3 -9s1 -9 3 -9a2 2 0 0 1 2 2"
+            />
+            <path d="M5 12h6" />
+            <path d="M15 12l6 6" />
+            <path d="M15 18l6 -6" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-11"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-diamond"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M6 5h12l3 5l-8.5 9.5a.7 .7 0 0 1 -1 0l-8.5 -9.5l3 -5" />
+            <path d="M10 12l-2 -2.2l.6 -1" />
+          </svg>
+        </span>
+        <span class="ambient-symbol symbol-12"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-puzzle"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-13"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-atom"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12v.01" />
+            <path
+              d="M19.071 4.929c-1.562 -1.562 -6 .337 -9.9 4.243c-3.905 3.905 -5.804 8.337 -4.242 9.9c1.562 1.561 6 -.338 9.9 -4.244c3.905 -3.905 5.804 -8.337 4.242 -9.9"
+            />
+            <path
+              d="M4.929 4.929c-1.562 1.562 .337 6 4.243 9.9c3.905 3.905 8.337 5.804 9.9 4.242c1.561 -1.562 -.338 -6 -4.244 -9.9c-3.905 -3.905 -8.337 -5.804 -9.9 -4.242"
+            />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-14"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-school"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" />
+            <path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-15"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-chess-king-icon lucide-chess-king"
+          >
+            <path
+              d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"
+            />
+            <path
+              d="m6.7 18-1-1C4.35 15.682 3 14.09 3 12a5 5 0 0 1 4.95-5c1.584 0 2.7.455 4.05 1.818C13.35 7.455 14.466 7 16.05 7A5 5 0 0 1 21 12c0 2.082-1.359 3.673-2.7 5l-1 1"
+            />
+            <path d="M10 4h4" />
+            <path d="M12 2v6.818" />
+          </svg>
+        </span>
+
+        <span class="ambient-symbol symbol-16"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler icons-tabler-outline icon-tabler-star"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path
+              d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245"
+            />
+          </svg>
+        </span>
+      </div>
+      <header class="topbar">
+        <div class="topbar-left">
+          <a
+            href="../Main Menu/index.html"
+            class="back-button"
+            data-sound="click"
+            data-navigation="true"
+            aria-label="Return to Main Menu"
+          >
+            <span class="back-button__icon" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m12 19-7-7 7-7" />
+                <path d="M19 12H5" />
+              </svg>
+            </span>
+
+            <span class="back-button__label">Back</span>
+          </a>
+        </div>
+
+        <div class="topbar-right">
+          <div class="topbar-right__element total-coins">
+            <img
+              src="../Images/coin.svg"
+              alt=""
+              class="coin-icon coins"
+              aria-hidden="true"
+            />
+
+            <span class="coin-amount coins" aria-live="polite"></span>
+          </div>
+
+          <div class="topbar-right__element user-avatar">
+            <button
+              type="button"
+              class="avatar-button"
+              data-sound="dropdown"
+              aria-label="Open profile menu"
+              aria-expanded="false"
+              aria-controls="profile-dropdown"
+            >
+              <img
+                src="../Images/avatar.svg"
+                alt="User avatar"
+                class="dropdown-top__avatar"
+              />
+            </button>
+
+            <div id="profile-dropdown" class="profile-dropdown hidden">
+              <div class="dropdown-top">
+                <img
+                  src="../Images/avatar.svg"
+                  alt="User avatar"
+                  class="dropdown-top__avatar"
+                />
+
+                <div class="user-info">
+                  <div class="username__ranking">
+                    <span class="dropdown-top__username">Timur Bagirov</span>
+
+                    <span class="dropdown-top__ranking" data-rank="novice">
+                      Novice
+                    </span>
+                  </div>
+
+                  <span class="dropdown-top__email"> example@gmail.com </span>
+                </div>
+              </div>
+
+              <div class="dropdown-top__level" data-rank="novice">
+                <div class="dropdown-top__level-top">
+                  <div class="user-level__circle">1</div>
+
+                  <div class="level">
+                    <span>
+                      Level
+                      <span class="user-level">1</span>
+                    </span>
+
+                    <span class="next-level__points">
+                      <span>200</span>
+                      points to the next level
+                    </span>
+                  </div>
+                </div>
+
+                <div class="progress-container">
+                  <div class="progress-bar-wrap">
+                    <div class="progress-track"></div>
+
+                    <span class="current-level">1</span>
+                    <span class="next-level">2</span>
+                  </div>
+
+                  <span class="current-points"> 200 / 500 XP </span>
+                </div>
+              </div>
+
+              <div class="dropdown-bottom">
+                <button
+                  type="button"
+                  class="dropdown-bottom__section profile"
+                  data-sound="click"
+                  data-navigation="true"
+                  data-url="../MyProfile Page/index.html"
+                >
+                  <span
+                    class="dropdown-bottom__icon profile-icon"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <circle cx="12" cy="8" r="5" />
+                      <path d="M20 21a8 8 0 0 0-16 0" />
+                    </svg>
+                  </span>
+
+                  <span class="dropdown-bottom__label profile-label">
+                    My Profile
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="dropdown-bottom__section settings"
+                  data-sound="click"
+                  data-navigation="true"
+                  data-url="../Settings Page/index.html"
+                >
+                  <span
+                    class="dropdown-bottom__icon settings-icon"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"
+                      />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </span>
+
+                  <span class="dropdown-bottom__label settings-label">
+                    Settings
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="dropdown-bottom__section darkmode"
+                  data-sound="toggle"
+                  aria-label="Switch to dark mode"
+                  aria-pressed="false"
+                >
+                  <div class="switch-left">
+                    <span class="dropdown-bottom__icon darkmode-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-moon-icon lucide-moon"
+                      >
+                        <path
+                          d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"
+                        />
+                      </svg>
+                    </span>
+
+                    <span class="dropdown-bottom__icon lightmode-icon">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-sun-icon lucide-sun"
+                      >
+                        <circle cx="12" cy="12" r="4" />
+                        <path d="M12 2v2" />
+                        <path d="M12 20v2" />
+                        <path d="m4.93 4.93 1.41 1.41" />
+                        <path d="m17.66 17.66 1.41 1.41" />
+                        <path d="M2 12h2" />
+                        <path d="M20 12h2" />
+                        <path d="m6.34 17.66-1.41 1.41" />
+                        <path d="m19.07 4.93-1.41 1.41" />
+                      </svg>
+                    </span>
+
+                    <span class="dropdown-bottom__label darkmode-label">
+                      Dark Mode
+                    </span>
+
+                    <span class="dropdown-bottom__label lightmode-label hidden">
+                      Light Mode
+                    </span>
+                  </div>
+
+                  <div class="switch-right">
+                    <div
+                      class="dropdown-bottom__element toggle"
+                      aria-hidden="true"
+                    >
+                      <span></span>
+                    </div>
+                  </div>
+                </button>
+
+                <button
+                  type="button"
+                  class="dropdown-bottom__section logout"
+                  data-sound="click"
+                  data-navigation="true"
+                  data-url="../Login Page/login.html"
+                >
+                  <span
+                    class="dropdown-bottom__icon logout-icon"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="m16 17 5-5-5-5" />
+                      <path d="M21 12H9" />
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    </svg>
+                  </span>
+
+                  <span class="dropdown-bottom__label logout-label">
+                    Logout
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-container">
+        <div class="page-heading">
+          <h1 class="page-label">Shop</h1>
+
+          <p class="page-description">
+            Spend coins, unlock items, and personalize your experience.
+          </p>
+        </div>
+
+        <section class="shop-section shop-section--boosters">
+          <div class="shop-section__header">
+            <div>
+              <span class="shop-section__eyebrow">Power-ups</span>
+
+              <h2 class="shop-section__title">Boosters</h2>
+
+              <p class="shop-section__description">
+                Temporary boosts to help you earn rewards faster.
+              </p>
+            </div>
+          </div>
+
+          <div class="shop-grid">
+            <article
+              class="shop-card shop-card--booster"
+              data-shop-category="booster"
+              data-shop-item="double-xp"
+              data-price="300"
+            >
+              <div class="shop-card__preview shop-card__preview--double-xp">
+                <span class="shop-card__preview-icon">2×</span>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Double XP</h3>
+
+                <p class="shop-card__description">
+                  Earn twice the normal XP from completed quizzes for 30
+                  minutes.
+                </p>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>300</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card shop-card--booster"
+              data-shop-category="booster"
+              data-shop-item="coin-rush"
+              data-price="250"
+            >
+              <div class="shop-card__preview shop-card__preview--coin-rush">
+                <span class="shop-card__preview-icon">+50%</span>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Coin Rush</h3>
+
+                <p class="shop-card__description">
+                  Earn 50% more coins from quiz rewards for the next 30 minutes.
+                </p>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>250</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card shop-card--booster"
+              data-shop-category="booster"
+              data-shop-item="streak-shield"
+              data-price="200"
+            >
+              <div class="shop-card__preview shop-card__preview--streak-shield">
+                <span class="shop-card__preview-icon">🛡</span>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Streak Shield</h3>
+
+                <p class="shop-card__description">
+                  Protect your current streak from one failed quiz attempt.
+                </p>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>200</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card shop-card--booster"
+              data-shop-category="booster"
+              data-shop-item="xp-surge"
+              data-price="180"
+            >
+              <div class="shop-card__preview shop-card__preview--xp-surge">
+                <span class="shop-card__preview-icon">+25%</span>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">XP Surge</h3>
+
+                <p class="shop-card__description">
+                  Earn 25% more XP from completed quizzes for 30 minutes.
+                </p>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>180</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="shop-section">
+          <div class="shop-section__header">
+            <div>
+              <span class="shop-section__eyebrow">Appearance</span>
+
+              <h2 class="shop-section__title">Themes</h2>
+
+              <p class="shop-section__description">
+                Change the overall visual atmosphere of QuizSphere.
+              </p>
+            </div>
+          </div>
+
+          <div class="shop-grid">
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="midnight-blue"
+              data-price="600"
+            >
+              <div class="shop-card__preview shop-card__preview--midnight">
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Midnight Blue</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>600</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="forest"
+              data-price="600"
+            >
+              <div class="shop-card__preview shop-card__preview--forest">
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Forest</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>600</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="lava"
+              data-price="650"
+            >
+              <div class="shop-card__preview shop-card__preview--lava">
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Lava</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>650</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="aurora"
+              data-price="650"
+            >
+              <div class="shop-card__preview shop-card__preview--aurora-theme">
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Aurora</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>650</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="candy"
+              data-price="700"
+            >
+              <div class="shop-card__preview shop-card__preview--candy">
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Candy</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>700</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="solar"
+              data-price="700"
+            >
+              <div class="shop-card__preview shop-card__preview--solar">
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Solar</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>700</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="royal"
+              data-price="750"
+            >
+              <div class="shop-card__preview shop-card__preview--royal">
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Royal</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>750</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="theme"
+              data-shop-item="terminal"
+              data-price="750"
+            >
+              <div
+                class="shop-card__preview shop-card__preview--terminal-theme"
+              >
+                <div class="theme-preview">
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                  <span class="theme-preview__panel"></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Terminal</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+
+                    <span>750</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="shop-section">
+          <div class="shop-section__header">
+            <div>
+              <span class="shop-section__eyebrow">Components</span>
+
+              <h2 class="shop-section__title">Styles</h2>
+
+              <p class="shop-section__description">
+                Transform the shape, depth, and personality of interface
+                components.
+              </p>
+            </div>
+          </div>
+
+          <div class="shop-grid">
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="glass"
+              data-price="450"
+            >
+              <div class="shop-card__preview shop-card__preview--glass">
+                <div class="style-preview style-preview--glass">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Glass</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>450</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="cyber"
+              data-price="500"
+            >
+              <div class="shop-card__preview shop-card__preview--cyber">
+                <div class="style-preview style-preview--cyber">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Cyber</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>500</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="neumorphism"
+              data-price="500"
+            >
+              <div class="shop-card__preview shop-card__preview--neumorphism">
+                <div class="style-preview style-preview--neumorphism">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Neumorphism</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>500</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="clay"
+              data-price="550"
+            >
+              <div class="shop-card__preview shop-card__preview--clay">
+                <div class="style-preview style-preview--clay">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Clay</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>550</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="outlined"
+              data-price="550"
+            >
+              <div class="shop-card__preview shop-card__preview--outlined">
+                <div class="style-preview style-preview--outlined">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Outlined</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>550</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="retro"
+              data-price="600"
+            >
+              <div class="shop-card__preview shop-card__preview--retro">
+                <div class="style-preview style-preview--retro">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Retro</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>600</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="terminal"
+              data-price="600"
+            >
+              <div class="shop-card__preview shop-card__preview--terminal">
+                <div class="style-preview style-preview--terminal">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Terminal</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>600</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="style"
+              data-shop-item="brutalist"
+              data-price="650"
+            >
+              <div class="shop-card__preview shop-card__preview--brutalist">
+                <div class="style-preview style-preview--brutalist">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Brutalist</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>650</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="shop-section">
+          <div class="shop-section__header">
+            <div>
+              <span class="shop-section__eyebrow">Colour packs</span>
+
+              <h2 class="shop-section__title">Accents</h2>
+
+              <p class="shop-section__description">
+                Build your palette with curated sets of matching accent colours.
+              </p>
+            </div>
+          </div>
+
+          <div class="shop-grid">
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="blue-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #38bdf8"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #0ea5e9"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #3b82f6"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #1d4ed8"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Blue Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="green-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #6ee7b7"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #10b981"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #22c55e"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #84cc16"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Green Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="red-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #fca5a5"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #f87171"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #ef4444"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #b91c1c"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Red Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="purple-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #d8b4fe"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #c084fc"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #a855f7"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #7e22ce"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Purple Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="yellow-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #fde68a"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #facc15"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #eab308"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #ca8a04"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Yellow Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="orange-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #fdba74"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #fb923c"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #f97316"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #c2410c"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Orange Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="pink-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #f9a8d4"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #f472b6"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #ec4899"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #be185d"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Pink Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="accent-pack"
+              data-shop-item="cyan-pack"
+              data-price="350"
+            >
+              <div class="shop-card__preview shop-card__preview--accent">
+                <div class="accent-pack-preview" aria-hidden="true">
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #a5f3fc"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #67e8f9"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #06b6d4"
+                  ></span>
+                  <span
+                    class="accent-pack-preview__color"
+                    style="--preview-color: #0e7490"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Cyan Pack</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>350</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="shop-section">
+          <div class="shop-section__header">
+            <div>
+              <span class="shop-section__eyebrow">Scenery</span>
+
+              <h2 class="shop-section__title">Backgrounds</h2>
+
+              <p class="shop-section__description">
+                Give your QuizSphere interface a completely different backdrop.
+              </p>
+            </div>
+          </div>
+
+          <div class="shop-grid">
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="midnight"
+              data-price="400"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--midnight"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Midnight</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>400</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="aurora"
+              data-price="450"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--aurora"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Aurora</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>450</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="sunset"
+              data-price="400"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--sunset"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Sunset</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>400</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="ocean"
+              data-price="400"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--ocean"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Ocean</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>400</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="forest"
+              data-price="425"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--forest"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Forest</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>425</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="cosmic"
+              data-price="450"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--cosmic"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Cosmic</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>450</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="lavender"
+              data-price="425"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--lavender"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Lavender</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>425</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <article
+              class="shop-card"
+              data-shop-category="background"
+              data-shop-item="ember"
+              data-price="450"
+            >
+              <div
+                class="shop-card__preview background-preview background-preview--ember"
+                aria-hidden="true"
+              ></div>
+
+              <div class="shop-card__content">
+                <h3 class="shop-card__title">Ember</h3>
+
+                <div class="shop-card__footer">
+                  <div class="shop-card__price">
+                    <img
+                      src="../Images/coin.svg"
+                      alt=""
+                      class="shop-card__coin"
+                      aria-hidden="true"
+                    />
+                    <span>450</span>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="shop-card__button"
+                    data-sound="purchase"
+                  >
+                    Buy
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
