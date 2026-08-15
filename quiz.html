@@ -3,7 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f1f5f9;
+      }
+
+      .preload *,
+      .preload *::before,
+      .preload *::after {
+        transition: none !important;
+      }
+    </style>
+
+    <script>
+      try {
+        const storedData = JSON.parse(localStorage.getItem("database"));
+        const database = storedData?.[0];
+
+        const activeUser = database?.users?.find(
+          (user) => user.userId === database?.activeSession?.userId,
+        );
+
+        const customization = activeUser?.customization;
+
+        if (customization) {
+          document.documentElement.dataset.theme =
+            customization.theme ?? "default";
+
+          document.documentElement.dataset.mode = customization.mode ?? "light";
+
+          document.documentElement.dataset.style =
+            customization.style ?? "default";
+
+          document.documentElement.dataset.accent =
+            customization.accent ?? "theme-default";
+
+          document.documentElement.dataset.background =
+            customization.background ?? "none";
+        }
+      } catch (error) {
+        console.error("Could not apply initial customization.", error);
+      }
+    </script>
+
     <title>Quiz App V1</title>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/themes.css" />
+    <link rel="stylesheet" href="styles/accents.css" />
+    <link rel="stylesheet" href="styles/element-styles.css" />
+    <link rel="stylesheet" href="styles/backgrounds.css" />
     <link rel="stylesheet" href="quiz.css" />
   </head>
   <body>
@@ -13,9 +65,6 @@
         <span class="question-index special"
           ><span class="current-question__index">1</span> /
           <span class="total-questions">10</span></span
-        >
-        <span class="currency special"
-          >🪙 <span class="currency-amount">0</span></span
         >
       </header>
 
@@ -28,33 +77,162 @@
         </div>
 
         <div class="options-area">
-          <button type="button" class="options option--0">
-            Flying Squirrel
+          <button type="button" class="options option--0" data-answer-id="a">
+            Loading...
           </button>
-          <button type="button" class="options option--1">Lemur</button>
-          <button type="button" class="options option--2">Bat</button>
-          <button type="button" class="options option--3">Sugar Glider</button>
+          <button type="button" class="options option--1" data-answer-id="b">
+            Loading...
+          </button>
+          <button type="button" class="options option--2" data-answer-id="c">
+            Loading...
+          </button>
+          <button type="button" class="options option--3" data-answer-id="d">
+            Loading...
+          </button>
         </div>
       </div>
 
       <div class="quiz-summary__container">
         <div class="quiz-summary hidden">
-          <h2 class="quiz-summary__label">Congrats!🏆</h2>
-          <span class="quiz-summary__score">You scored 90%</span>
-          <p class="quiz-summary__text">
-            You attempted
-            <span class="total-questions__count">10</span> questions and got
-            <span class="correct-answers">8</span> of them right.
-          </p>
-          <span class="quiz-summary__reward"
-            >You earned 🪙 <span class="total-coins__earned">50</span></span
+          <div class="stars-container">
+            <span
+              ><svg
+                class="level-completed__star star--1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.5 14.9 8.4l6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3 1.1-6.5L2.6 9.3l6.5-.9L12 2.5z"
+                />
+              </svg>
+            </span>
+
+            <span
+              ><svg
+                class="level-completed__star star--2"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.5 14.9 8.4l6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3 1.1-6.5L2.6 9.3l6.5-.9L12 2.5z"
+                />
+              </svg>
+            </span>
+
+            <span
+              ><svg
+                class="level-completed__star star--3"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2.5 14.9 8.4l6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3 1.1-6.5L2.6 9.3l6.5-.9L12 2.5z"
+                />
+              </svg>
+            </span>
+          </div>
+          <span class="quiz-summary__level">Level 1</span>
+          <h2 class="quiz-summary__label">Complete</h2>
+          <span class="quiz-summary__score quiz-summary__score--target"
+            >Required: <span class="level-target">4</span> /
+            <span class="total-questions">10</span></span
           >
+          <span class="quiz-summary__score quiz-summary__score--current"
+            >Your Score: <span class="level-current">7</span> /
+            <span class="total-questions">10</span></span
+          >
+
+          <div class="quiz-summary__reward">
+            <h2 class="reward-label">Reward:</h2>
+
+            <div class="reward-amount">
+              <div class="reward-amount__coins">
+                <img src="../Images/coin.svg" class="coin-icon coins" />
+                <span class="coin-amount coins" aria-live="polite">100</span>
+              </div>
+
+              <div class="reward-amount__xp">
+                <img src="Images/xp.jpg" class="xp-icon" />
+                <span class="amount-xp">500</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="quiz-summary__buttons">
+            <button
+              type="button"
+              class="quiz-summary__button levels-map__button"
+              aria-label="Navigate to levels map"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-house-icon lucide-house"
+              >
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                <path
+                  d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="quiz-summary__button next-level__button hidden"
+              aria-label="Start next level"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-player-track-next"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 5v14l8 -7l-8 -7" />
+                <path d="M14 5v14l8 -7l-8 -7" />
+              </svg>
+            </button>
+
+            <button
+              type="button"
+              class="quiz-summary__button retry-button"
+              aria-label="Retry current level"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-restore"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3.06 13a9 9 0 1 0 .49 -4.087" />
+                <path d="M3 4.001v5h5" />
+                <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
-    <script src="questions.js"></script>
-    <script src="quiz.js" defer></script>
+    <script type="module" src="quiz.js" defer></script>
+    <script src="player-progression.js"></script>
   </body>
 </html>

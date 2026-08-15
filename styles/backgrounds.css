@@ -1,0 +1,539 @@
+body {
+  background-color: var(--background);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  transition:
+    background-color var(--transition-theme),
+    background-image var(--transition-theme);
+}
+
+html[data-background="none"] body {
+  background-image: none;
+}
+
+/* =========================================
+   MIDNIGHT
+   ========================================= */
+
+html[data-mode="light"][data-background="midnight"] body {
+  background-image:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(148, 163, 184, 0.55),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #f8fafc, #e2e8f0 50%, #cbd5e1);
+}
+
+html[data-mode="dark"][data-background="midnight"] body {
+  background-image:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(71, 85, 105, 0.65),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #020617, #0f172a 50%, #1e293b);
+}
+
+/* =========================================
+   AURORA
+   ========================================= */
+
+html[data-mode="light"][data-background="aurora"] body {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(34, 197, 94, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(59, 130, 246, 0.28),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(168, 85, 247, 0.22),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+html[data-mode="dark"][data-background="aurora"] body {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.4), transparent 35%),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(59, 130, 246, 0.42),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(168, 85, 247, 0.35),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #020617, #172554);
+}
+
+/* =========================================
+   SUNSET
+   ========================================= */
+
+html[data-mode="light"][data-background="sunset"] body {
+  background-image:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(251, 146, 60, 0.4),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(236, 72, 153, 0.28),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #fff7ed, #fed7aa 48%, #fbcfe8);
+}
+
+html[data-mode="dark"][data-background="sunset"] body {
+  background-image:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(251, 146, 60, 0.42),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(236, 72, 153, 0.32),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #431407, #7c2d12 45%, #831843);
+}
+
+/* =========================================
+   OCEAN
+   ========================================= */
+
+html[data-mode="light"][data-background="ocean"] body {
+  background-image:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(56, 189, 248, 0.3),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(20, 184, 166, 0.24),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #ecfeff, #bae6fd 45%, #ccfbf1);
+}
+
+html[data-mode="dark"][data-background="ocean"] body {
+  background-image:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(56, 189, 248, 0.32),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(20, 184, 166, 0.28),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #082f49, #0c4a6e 45%, #164e63);
+}
+
+/* =========================================
+   FOREST
+   ========================================= */
+
+html[data-mode="light"][data-background="forest"] body {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(74, 222, 128, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(132, 204, 22, 0.22),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #f0fdf4, #dcfce7 45%, #ecfccb);
+}
+
+html[data-mode="dark"][data-background="forest"] body {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(74, 222, 128, 0.22),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(132, 204, 22, 0.16),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #052e16, #14532d 45%, #1a2e05);
+}
+
+/* =========================================
+   COSMIC
+   ========================================= */
+
+html[data-mode="light"][data-background="cosmic"] body {
+  background-image:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(99, 102, 241, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(168, 85, 247, 0.22),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #f8fafc, #eef2ff 50%, #f5f3ff);
+}
+
+html[data-mode="dark"][data-background="cosmic"] body {
+  background-image:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(99, 102, 241, 0.3),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(168, 85, 247, 0.25),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #020617, #111827);
+}
+
+/* =========================================
+   LAVENDER
+   ========================================= */
+
+html[data-mode="light"][data-background="lavender"] body {
+  background-image:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(196, 181, 253, 0.38),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(244, 114, 182, 0.18),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #faf5ff, #ede9fe 48%, #fce7f3);
+}
+
+html[data-mode="dark"][data-background="lavender"] body {
+  background-image:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(196, 181, 253, 0.32),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(244, 114, 182, 0.24),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #1e1b4b, #4c1d95 48%, #701a75);
+}
+
+/* =========================================
+   EMBER
+   ========================================= */
+
+html[data-mode="light"][data-background="ember"] body {
+  background-image:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(251, 146, 60, 0.42),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(239, 68, 68, 0.22),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #fff7ed, #ffedd5 48%, #fee2e2);
+}
+
+html[data-mode="dark"][data-background="ember"] body {
+  background-image:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(251, 146, 60, 0.5),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(239, 68, 68, 0.32),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #290a05, #7c2d12 48%, #9a3412);
+}
+
+/* =========================================
+   BACKGROUND PREVIEWS
+   ========================================= */
+
+/* Midnight */
+
+html[data-mode="light"] .background-preview--midnight {
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(148, 163, 184, 0.55),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #f8fafc, #e2e8f0 50%, #cbd5e1);
+}
+
+html[data-mode="dark"] .background-preview--midnight {
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(71, 85, 105, 0.65),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #020617, #0f172a 50%, #1e293b);
+}
+
+/* Aurora */
+
+html[data-mode="light"] .background-preview--aurora {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(34, 197, 94, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(59, 130, 246, 0.28),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(168, 85, 247, 0.22),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #f8fafc, #eef2ff);
+}
+
+html[data-mode="dark"] .background-preview--aurora {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.4), transparent 35%),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(59, 130, 246, 0.42),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(168, 85, 247, 0.35),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #020617, #172554);
+}
+
+/* Sunset */
+
+html[data-mode="light"] .background-preview--sunset {
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(251, 146, 60, 0.4),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(236, 72, 153, 0.28),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #fff7ed, #fed7aa 48%, #fbcfe8);
+}
+
+html[data-mode="dark"] .background-preview--sunset {
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(251, 146, 60, 0.42),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(236, 72, 153, 0.32),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #431407, #7c2d12 45%, #831843);
+}
+
+/* Ocean */
+
+html[data-mode="light"] .background-preview--ocean {
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(56, 189, 248, 0.3),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(20, 184, 166, 0.24),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #ecfeff, #bae6fd 45%, #ccfbf1);
+}
+
+html[data-mode="dark"] .background-preview--ocean {
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(56, 189, 248, 0.32),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(20, 184, 166, 0.28),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #082f49, #0c4a6e 45%, #164e63);
+}
+
+/* Forest */
+
+html[data-mode="light"] .background-preview--forest {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(74, 222, 128, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(132, 204, 22, 0.22),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #f0fdf4, #dcfce7 45%, #ecfccb);
+}
+
+html[data-mode="dark"] .background-preview--forest {
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(74, 222, 128, 0.22),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(132, 204, 22, 0.16),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #052e16, #14532d 45%, #1a2e05);
+}
+
+/* Cosmic */
+
+html[data-mode="light"] .background-preview--cosmic {
+  background:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(99, 102, 241, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(168, 85, 247, 0.22),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #f8fafc, #eef2ff 50%, #f5f3ff);
+}
+
+html[data-mode="dark"] .background-preview--cosmic {
+  background:
+    radial-gradient(
+      circle at 15% 25%,
+      rgba(99, 102, 241, 0.3),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(168, 85, 247, 0.25),
+      transparent 40%
+    ),
+    linear-gradient(135deg, #020617, #111827);
+}
+
+/* Lavender */
+
+html[data-mode="light"] .background-preview--lavender {
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(196, 181, 253, 0.38),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(244, 114, 182, 0.18),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #faf5ff, #ede9fe 48%, #fce7f3);
+}
+
+html[data-mode="dark"] .background-preview--lavender {
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(196, 181, 253, 0.32),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(244, 114, 182, 0.24),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #1e1b4b, #4c1d95 48%, #701a75);
+}
+
+/* Ember */
+
+html[data-mode="light"] .background-preview--ember {
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(251, 146, 60, 0.42),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(239, 68, 68, 0.22),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #fff7ed, #ffedd5 48%, #fee2e2);
+}
+
+html[data-mode="dark"] .background-preview--ember {
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      rgba(251, 146, 60, 0.5),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(239, 68, 68, 0.32),
+      transparent 40%
+    ),
+    linear-gradient(145deg, #290a05, #7c2d12 48%, #9a3412);
+}

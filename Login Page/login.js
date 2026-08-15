@@ -73,7 +73,7 @@ function handleSubmit() {
   if (userExists) {
     database[0].activeSession.userId = userExists.userId;
     setUpdatedUserRecord("database", database);
-    window.location.href = "../Main Menu/index-copy.html";
+    window.location.href = "../Main Menu/index.html";
     return;
   }
 }

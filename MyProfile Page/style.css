@@ -1,0 +1,727 @@
+/* ==================================================
+   PROFILE PAGE
+================================================== */
+
+/* ==================================================
+   PROFILE OVERVIEW
+================================================== */
+
+.profile-overview {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  padding: 2rem;
+  margin-bottom: 2rem;
+
+  background: var(--component-background);
+  border: var(--component-border);
+  border-radius: var(--component-radius);
+  box-shadow: var(--component-shadow);
+  backdrop-filter: var(--component-backdrop-filter);
+
+  font-family: var(--style-font-family);
+}
+
+/* ==================================================
+   AVATAR
+================================================== */
+
+.profile-avatar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  flex-shrink: 0;
+}
+
+.profile-avatar {
+  width: 130px;
+  height: 130px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 3px solid var(--accent);
+
+  background: var(--surface-alt);
+}
+
+.profile-avatar-btn {
+  padding: 0.65rem 1rem;
+
+  background: var(--control-background);
+  color: var(--text-primary);
+
+  border: var(--control-border);
+  border-radius: var(--control-radius);
+
+  box-shadow: var(--control-shadow);
+  backdrop-filter: var(--control-backdrop-filter);
+
+  font: inherit;
+  font-family: var(--style-font-family);
+  letter-spacing: var(--style-letter-spacing);
+  text-transform: var(--style-text-transform);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.profile-avatar-btn:hover {
+  transform: var(--style-hover-transform);
+}
+
+.profile-avatar-btn:active {
+  transform: var(--style-active-transform);
+  box-shadow: var(--control-pressed-shadow);
+}
+
+/* ==================================================
+   PROFILE MAIN INFO
+================================================== */
+
+.profile-main-info {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.profile-name-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.profile-nickname {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.profile-email {
+  margin: 0;
+
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ==================================================
+   EDIT PROFILE BUTTON
+================================================== */
+
+.edit-profile-btn,
+.edit-account-btn,
+.settings-btn,
+.logout-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.7rem 1.1rem;
+
+  background: var(--control-background);
+  color: var(--text-primary);
+
+  border: var(--control-border);
+  border-radius: var(--control-radius);
+
+  box-shadow: var(--control-shadow);
+  backdrop-filter: var(--control-backdrop-filter);
+
+  font: inherit;
+  font-family: var(--style-font-family);
+  letter-spacing: var(--style-letter-spacing);
+  text-transform: var(--style-text-transform);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.edit-profile-btn:hover,
+.edit-account-btn:hover,
+.settings-btn:hover,
+.logout-btn:hover {
+  transform: var(--style-hover-transform);
+}
+
+.edit-profile-btn:active,
+.edit-account-btn:active,
+.settings-btn:active,
+.logout-btn:active {
+  transform: var(--style-active-transform);
+  box-shadow: var(--control-pressed-shadow);
+}
+
+/* ==================================================
+   RANK
+================================================== */
+
+.profile-rank {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  width: fit-content;
+
+  padding: 0.45rem 0.8rem;
+
+  background: var(--surface-alt);
+
+  border-radius: var(--control-radius);
+
+  color: var(--text-primary);
+}
+
+.profile-rank-label {
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}
+
+.profile-rank-value {
+  color: var(--accent);
+
+  font-weight: 700;
+}
+
+/* ==================================================
+   LEVEL / XP
+================================================== */
+
+.profile-level {
+  width: 100%;
+  max-width: 550px;
+
+  margin-top: 0.4rem;
+}
+
+.profile-level-info {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 0.5rem;
+
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.profile-level-info span:first-child {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.profile-xp-bar {
+  width: 100%;
+  height: 10px;
+
+  overflow: hidden;
+
+  background: var(--surface-alt);
+
+  border-radius: 999px;
+}
+
+.profile-xp-progress {
+  width: 0%;
+  height: 100%;
+
+  background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
+
+  border-radius: inherit;
+
+  transition: width 0.4s ease;
+}
+
+/* ==================================================
+   SHARED PROFILE SECTIONS
+================================================== */
+
+.profile-section {
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+
+  background: var(--component-background);
+
+  border: var(--component-border);
+  border-radius: var(--component-radius);
+
+  box-shadow: var(--component-shadow);
+
+  backdrop-filter: var(--component-backdrop-filter);
+
+  font-family: var(--style-font-family);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 1.4rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  color: var(--text-primary);
+
+  font-size: 1.3rem;
+}
+
+.section-description {
+  margin: 0.35rem 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+.section-link {
+  color: var(--accent);
+
+  text-decoration: none;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.section-link:hover {
+  opacity: 0.8;
+}
+
+/* ==================================================
+   PLAYER STATS
+================================================== */
+
+.profile-stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1rem;
+}
+
+.profile-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 110px;
+
+  padding: 1rem;
+
+  background: var(--control-background);
+
+  border: var(--control-border);
+  border-radius: var(--control-radius);
+
+  box-shadow: var(--control-shadow);
+
+  text-align: center;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.profile-stat-card:hover {
+  transform: var(--style-hover-transform);
+}
+
+.profile-stat-value {
+  color: var(--accent);
+
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.profile-stat-label {
+  margin-top: 0.35rem;
+
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}
+
+/* ==================================================
+   CAMPAIGN
+================================================== */
+
+.campaign-profile-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 1.5rem;
+
+  padding: 1.4rem;
+
+  background: var(--control-background);
+
+  border: var(--control-border);
+  border-radius: var(--control-radius);
+
+  box-shadow: var(--control-shadow);
+}
+
+.campaign-world-label {
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}
+
+.campaign-world-name {
+  margin: 0.25rem 0 0.6rem;
+
+  color: var(--text-primary);
+
+  font-size: 1.25rem;
+}
+
+.campaign-progress-text {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+.campaign-stars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 100px;
+}
+
+.campaign-stars-value {
+  color: var(--accent);
+
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.campaign-stars-label {
+  color: var(--text-secondary);
+
+  font-size: 0.85rem;
+}
+
+/* ==================================================
+   ACHIEVEMENTS
+================================================== */
+
+.profile-achievements-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1rem;
+}
+
+.profile-achievement-card {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 1.2rem;
+
+  background: var(--control-background);
+
+  border: var(--control-border);
+  border-radius: var(--control-radius);
+
+  box-shadow: var(--control-shadow);
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.profile-achievement-card:hover {
+  transform: var(--style-hover-transform);
+}
+
+.profile-achievement-card.locked {
+  opacity: 0.55;
+}
+
+.achievement-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  background: var(--surface-alt);
+
+  border-radius: var(--control-radius);
+
+  font-size: 1.5rem;
+}
+
+.achievement-info h3 {
+  margin: 0 0 0.3rem;
+
+  color: var(--text-primary);
+
+  font-size: 1rem;
+}
+
+.achievement-info p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.achievement-progress {
+  margin: 1.2rem 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+
+  text-align: right;
+}
+
+.achievement-unlocked-count {
+  color: var(--accent);
+
+  font-weight: 700;
+}
+
+/* ==================================================
+   CUSTOMIZATION SUMMARY
+================================================== */
+
+.profile-customization-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1rem;
+}
+
+.customization-summary-card {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.35rem;
+
+  padding: 1.1rem;
+
+  background: var(--control-background);
+
+  border: var(--control-border);
+  border-radius: var(--control-radius);
+
+  box-shadow: var(--control-shadow);
+
+  transition: transform 0.2s ease;
+}
+
+.customization-summary-card:hover {
+  transform: var(--style-hover-transform);
+}
+
+.customization-label {
+  color: var(--text-secondary);
+
+  font-size: 0.82rem;
+}
+
+.customization-summary-card strong {
+  color: var(--text-primary);
+
+  font-size: 1rem;
+}
+
+/* ==================================================
+   ACCOUNT
+================================================== */
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding: 1rem 0;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.account-info-row:first-child {
+  padding-top: 0;
+}
+
+.account-info-row:last-child {
+  border-bottom: none;
+}
+
+.account-info-label {
+  color: var(--text-secondary);
+
+  font-size: 0.9rem;
+}
+
+.account-nickname,
+.account-email,
+.account-created-date {
+  color: var(--text-primary);
+
+  font-weight: 500;
+}
+
+/* ==================================================
+   ACCOUNT ACTIONS
+================================================== */
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+
+  margin-top: 1.4rem;
+}
+
+.edit-account-btn {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.logout-btn {
+  color: var(--text-primary);
+}
+
+/* ==================================================
+   RETRO / TERMINAL / BRUTALIST AVATAR ADJUSTMENT
+================================================== */
+
+html[data-style="retro"] .profile-avatar,
+html[data-style="terminal"] .profile-avatar,
+html[data-style="brutalist"] .profile-avatar {
+  border-radius: 0;
+}
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media (max-width: 900px) {
+  .profile-stats-grid,
+  .profile-customization-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-achievements-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .profile-overview {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .profile-main-info {
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .profile-name-container {
+    justify-content: center;
+  }
+
+  .profile-level {
+    max-width: none;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .campaign-profile-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .campaign-stars {
+    align-items: flex-start;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .profile-actions > * {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .profile-stats-grid,
+  .profile-customization-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-section,
+  .profile-overview {
+    padding: 1.2rem;
+  }
+
+  .profile-avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-nickname {
+    font-size: 1.6rem;
+  }
+
+  .account-info-row {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 0.3rem;
+  }
+}

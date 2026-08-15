@@ -68,10 +68,15 @@ body::after {
   left: clamp(1rem, 1.5vw, 2rem);
 }
 
-.brain-img {
-  width: clamp(3rem, 4vw, 5rem);
-  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(220deg)
-    brightness(118%) contrast(119%);
+.logo-img {
+  display: inline-flex;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.logo-img svg {
+  width: clamp(2.75rem, 4vw, 4.5rem);
+  height: clamp(2.75rem, 4vw, 4.5rem);
 }
 
 .app-name {
